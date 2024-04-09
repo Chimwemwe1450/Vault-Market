@@ -1,0 +1,219 @@
+<ion-content [fullscreen]="true">
+  <div class="screen-container">
+    <br>
+    <div class="screen-padding">
+
+      <div class="top-section">
+        <ion-grid class="trading-grid">
+          <ion-row>
+            <ion-col size="6">
+              <div (click)="launchSearchModal()" class="select-blocks ion-activatable ripple-parent">
+                <div>
+                  <ion-icon name="search-outline" size="small"></ion-icon><br>
+                  Search
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <div (click)="toggleAdvancedSearch()" class="select-blocks ion-activatable ripple-parent">
+                <div>
+                  <ion-icon name="options" size="small"></ion-icon><br>
+                  Filter
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+      </div>
+
+  
+
+      <app-search></app-search>
+
+      <div class="body-main">
+        <div @fadeAnimation *ngIf="showAdvancedSearch" class="advanced-search">
+          <form [formGroup]="advancedSearchForm">
+            <div class="padding-bottom margin-b input-block input-block-highlight input-block-padding">
+              <h5 class="center-text highlight-text"> Filter </h5>
+
+              <ion-item class="input-style" lines="full">
+                <ion-label color="input-label" position="floating">
+                  Type
+                </ion-label>
+                <ion-select formControlName="type">
+                  <ion-select-option value="WITHDRAWAL">Withdrawal</ion-select-option>
+                  <ion-select-option value="TOTRADING">Internal Transfer to Trading Account</ion-select-option>
+                  <ion-select-option value="DEPOSIT">Deposit</ion-select-option>
+                  <ion-select-option value="FROMTRADING">Internal Transfer from Trading Account</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item class="input-style" lines="full">
+                <ion-label color="input-label" position="floating">
+                  Method
+                </ion-label>
+                <ion-select formControlName="method">
+                  <ion-select-option value="CREDITCARD">PSP</ion-select-option>
+                  <ion-select-option value="WIRE">Wire Transfer</ion-select-option>
+                  <ion-select-option value="TRADINGACCOUNT">Trading Account</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item class="input-style" lines="full">
+                <ion-label color="input-label" position="floating">
+                  Status
+                </ion-label>
+                <ion-select formControlName="status">
+                  <ion-select-option value="PENDING">Pending (only for Withdrawals)</ion-select-option>
+                  <ion-select-option value="APPROVED">Approved</ion-select-option>
+                  <ion-select-option value="DECLINED">Declined</ion-select-option>
+                  <ion-select-option value="CANCELLED">Cancelled</ion-select-option>
+                  <ion-select-option value="ERROR">Error</ion-select-option>
+                  <ion-select-option value="REVIEW">Under Review</ion-select-option>
+                  <ion-select-option value="UNAUTHORIZED">User Unauthorized</ion-select-option>
+                  <ion-select-option value="INITIATION">Refund Initiation</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div class="button-container-right">
+                <ion-item id="clear-filter-button" lines="none" button (click)="clearSearch()">
+                  <ion-label>Clear</ion-label>
+                  <ion-icon color="secondary" name="remove-circle-outline" slot="end"></ion-icon>
+                </ion-item>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <div *ngIf="showSearchResult">
+          <div>
+            <div *ngFor="let trans of transactionsDisplayed"
+              class="input-block input-block-highlight input-block-padding margin-b">
+              <ion-text class="body-text-color grey-text">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col id="date-col">
+                      <span id="date" class="text-highlight">{{trans.transaction_dt | date:'medium'}}</span>
+                      <span style="vertical-align:center">
+                        <ion-badge
+                          [color]="trans.status === 'APPROVED' ? 'secondary' : 'tertiary'">{{trans.status}}</ion-badge>
+                      </span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <span class="text-highlight bold">{{trans.type_title}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="table-text">
+                    <ion-col class="table-heading">
+                      SUB-TYPE:
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-highlight">{{trans.subtype_title || 'N/A'}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="odd-row table-text">
+                    <ion-col class="table-heading">
+                      METHOD:
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-highlight">{{trans.method_title}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="table-text">
+                    <ion-col class="table-heading">
+                      SOURCE:
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-highlight">{{trans.method_name}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="odd-row table-text">
+                    <ion-col class="table-heading">
+                      AMOUNT:
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-highlight">{{trans.amount_formatted}} <i>{{trans.currency}}</i></span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="table-text">
+                    <ion-col class="table-heading">
+                      NET AMOUNT:
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-highlight">{{+trans.amount_formatted - +trans.credit_formatted}}
+                        <i>{{trans.currency}}</i></span>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-text>
+
+            </div>
+
+            <br>
+
+            <ng-container *ngIf="loading">
+              <div class="trading-history-block center-text">
+                <ion-spinner id="content-loader" name="bubbles"></ion-spinner>
+              </div>
+            </ng-container>
+
+            <ion-infinite-scroll threshold="50px" (ionInfinite)="doInfinite($event)"
+              *ngIf="transactionsDisplayed.length < transactionsObject.totalData" class="trading-history-block">
+              <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+
+            <ng-container *ngIf="!transactionsDisplayed.length && !loading">
+              <div class="trading-history-block center-text">
+                <ion-text class="body-text-color grey-text">
+                  No data
+                </ion-text>
+              </div>
+            </ng-container>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button size="small" (click)="screenSelector('deposit')" color="secondary" size="small">
+      <svg class="deposit-icon" fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <g data-name="11. Phone" id="_11._Phone">
+
+          <path d="M14,6a1,1,0,0,0,0-2H8A1,1,0,0,0,8,6Z" />
+
+          <path
+            d="M21,8.84v-4A4.8,4.8,0,0,0,16.21,0H5.79A4.8,4.8,0,0,0,1,4.79V27.21A4.8,4.8,0,0,0,5.79,32H16.21A4.8,4.8,0,0,0,21,27.21v-.05A10,10,0,0,0,21,8.84ZM16.21,30H5.79A2.79,2.79,0,0,1,3,27.21V4.79A2.79,2.79,0,0,1,5.79,2H16.21A2.79,2.79,0,0,1,19,4.79V8.2A10.2,10.2,0,0,0,17,8a9.92,9.92,0,0,0-7,2.89V10a1,1,0,0,0-2,0V26a1,1,0,0,0,2,0v-.89A9.92,9.92,0,0,0,17,28a10.19,10.19,0,0,0,1.93-.19A2.79,2.79,0,0,1,16.21,30ZM17,26a8,8,0,0,1-7-4.14V14.14A8,8,0,1,1,17,26Z" />
+
+          <path
+            d="M17,15h2a1,1,0,0,0,0-2H18a1,1,0,0,0-2,0v.18A3,3,0,0,0,17,19a1,1,0,0,1,0,2H15a1,1,0,0,0,0,2h1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,17,17a1,1,0,0,1,0-2Z" />
+
+          <path
+            d="M30,5H27.41l.3-.29a1,1,0,1,0-1.42-1.42l-2,2a1,1,0,0,0,0,1.42l2,2a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L27.41,7H30a1,1,0,0,0,0-2Z" />
+
+        </g>
+
+      </svg>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="banner">
+    <div>
+      <p class="m-b">Wallet Balance</p>
+      <p class="m-t">{{balance || '0.00'}} {{currency || '-'}}</p>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <app-fab-menu></app-fab-menu>
+  </ion-fab>
+</ion-content>

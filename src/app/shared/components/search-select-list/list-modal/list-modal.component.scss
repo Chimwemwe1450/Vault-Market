@@ -1,0 +1,50 @@
+@import '../../../../../theme/variables.scss';
+
+/* :host {
+  app-list-modal {
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    max-height: 60vh;
+  }
+} */
+
+#header {
+  font-size: var(--regular-font);
+  font-weight: bold;
+  background: var(--ion-color-primary);
+  color: var(--heading-text);
+}
+
+ion-searchbar {
+  --background: var(--background-tertiary);
+  --color: var(--heading-text);
+}
+
+#search-bar {
+
+}
+
+#header-container {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+ion-list {
+  background: var(--ion-color-primary);
+  overflow-y: scroll;
+}
+
+ion-list-header {
+  --border-color: var(--background-tertiary);
+}
+
+.item-radio-checked {
+  --background: var(--background-tertiary);
+}
+
+ion-item {
+  --background: var(--ion-color-primary);
+  --border-color: var(--background-tertiary);
+}

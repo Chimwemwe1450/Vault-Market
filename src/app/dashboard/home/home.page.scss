@@ -1,0 +1,66 @@
+@import '../../../theme/variables.scss';
+
+.text-highlight {
+  color: var(--heading-text);
+}
+
+.highlight-text {
+  text-align: center;
+  font-size: 36px;
+  font-weight: semibold;
+}
+
+.wallet-heading {
+  color: var(--background-tertiary);
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.wallet-balance {
+  color: var(--highlight);
+  font-size: 24px;
+  text-align: center;
+}
+
+ion-popover {
+  ion-list {
+    color: var(--heading-text);
+  }
+}
+
+#tradingAccSelector {
+  padding: 10px 15px;
+}
+
+// .input-block-highlight {
+//   background: var(--background-secondary);
+// }
+
+.icon-button {
+  font-size: var(--small-font);
+  width: fit-content;
+  color: var(--ion-color-secondary);
+  --padding-start: 5px;
+  --padding-end: 5px;
+  --inner-padding-start: 5px;
+  --inner-padding-end: ;
+  --min-height: 0;
+  ion-icon {
+    font-size: var(--regular-font);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-inline-start: 5px;
+  }
+  ion-label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.select-blocks {
+  color: var(--highlight);
+}
+
+

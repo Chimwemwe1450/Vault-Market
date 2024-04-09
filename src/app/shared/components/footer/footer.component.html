@@ -1,0 +1,36 @@
+<ion-footer>
+  <ion-toolbar class="footer-nav">
+    <div id="footer">
+      <div class="nav-item" [ngClass]="{'active-item':active === 0}">
+        <ion-icon [color]="active === 0 ? 'secondary' : 'toolbar-icon'" size="large" name="home"
+          (click)="navigate('/dashboard')">
+        </ion-icon>
+        <ion-label>Dashboard</ion-label>
+       </div>
+      <div class="nav-item" [ngClass]="{'active-item':active === 1}">
+        <ion-icon [color]="active === 1 ? 'secondary' : 'toolbar-icon'" size="large" name="stats-chart"
+          (click)="navigate('/dashboard/trading-accounts')">
+        </ion-icon>
+        <ion-label>Trading</ion-label>
+      </div>
+      <div class="nav-item" [ngClass]="{'active-item':active === 2}">
+        <ion-icon [color]="active ===  2? 'secondary' : 'toolbar-icon'" size="large" name="hammer"
+          (click)="navigate('/dashboard/tools')">
+        </ion-icon>
+        <ion-label>Tools</ion-label>
+      </div>
+      <div class="nav-item" [ngClass]="{'active-item':active === 3}">
+        <ion-icon [color]="active === 3 ? 'secondary' : 'toolbar-icon'" size="large" name="reader"
+          (click)="navigate('/dashboard/history')">
+        </ion-icon>
+        <ion-label>History</ion-label>
+      </div>
+      <div class="nav-item" [ngClass]="{'active-item':active === 4}">
+        <ion-icon [color]="active === 4 ? 'secondary' : 'toolbar-icon'" size="large" name="person"
+          (click)="navigate('/dashboard/profile')">
+        </ion-icon>
+        <ion-label>Profile</ion-label>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

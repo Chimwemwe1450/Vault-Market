@@ -1,0 +1,69 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="wallet-man-block">
+    <h4 class="center-text highlight-text">Transfer Funds</h4>
+    <div class="input-block-padding">
+      <ion-item class="input-style" lines="full">
+        <ion-label *ngIf="tradingAccount; else noAccounts" color="input-label" position="floating">
+          Transfer To
+        </ion-label>
+        <ng-template #noAccounts>
+          <ion-label color="input-label" position="floating">
+            - no Accounts available -
+          </ion-label>
+        </ng-template>
+        <ion-select [(ngModel)]="toSelection">
+          <ion-select-option [value]="tradingAccount">{{tradingAccount?.account_type_name}}
+            {{tradingAccount?.login}}</ion-select-option>
+          <ion-select-option value="MYWALLET">MYWALLET</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-text *ngIf="toSelection" class="body-text-color grey-text">
+        <div *ngIf="toSelection === 'MYWALLET'; else tradeAccount">
+          <br>
+          Current Balance:<br>
+          <span class="highlight-text">{{walletAccount?.balance_formatted}} {{walletAccount?.currency}}</span>
+          <br>
+        </div>
+        <ng-template #tradeAccount>
+          <br>
+          Current Balance:<br>
+          <span class="highlight-text">{{toSelection?.balance_formatted}} {{toSelection?.currency}}</span>
+          <br>
+        </ng-template>
+      </ion-text>
+
+      <br>
+      <br>
+      <ion-item class="input-style" lines="full" *ngIf="toSelection">
+        <ion-label color="input-label" position="floating">
+          Transfer Amount
+        </ion-label>
+        <ion-input [(ngModel)]="amount" name="amount" inputmode="numeric" type="number">
+        </ion-input>
+      </ion-item>
+
+      <ion-text *ngIf="toSelection" class="body-text-color grey-text">
+        <div *ngIf="toSelection === 'MYWALLET'; else wallet">
+          <br>
+          Available Balance ({{tradingAccount?.account_type_name}} {{tradingAccount?.login}}):<br>
+          <span class="highlight-text">{{tradingAccount?.balance_formatted}} {{tradingAccount?.currency}}</span>
+          <br>
+        </div>
+        <ng-template #wallet>
+          <br>
+          Available Balance (My Wallet):<br>
+          <span class="highlight-text">{{walletAccount?.balance_formatted}} {{walletAccount?.currency}}</span>
+          <br>
+        </ng-template>
+      </ion-text>
+
+    </div>
+    <br>
+    <div class="button-container">
+      <ion-button (click)="onSubmit()" color="secondary" [disabled]="!amount">
+        Transfer
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

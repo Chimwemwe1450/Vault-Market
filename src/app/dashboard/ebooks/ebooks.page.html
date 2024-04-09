@@ -1,0 +1,23 @@
+<ion-content>
+  <br>
+  <ion-card class="input-block input-block-padding input-block-highlight title shadow-none title-card">
+    <p class="heading">Click below to <span class="bold">download</span> our <span class="bold text-secondary">
+        Free EBooks</span>
+    </p>
+
+  </ion-card>
+
+  <ion-grid>
+    <ion-row *ngFor="let ebook of ebooks">
+      <ion-card class="input-block input-block-highlight shadow-none">
+        <img class="webinar-image" [src]="ebook.imageUrl">
+   
+        <ion-card-content class="ion-text-center">
+          <ion-button class="watch-button" [href]="ebook.ebookUrl" color="black">Download EBook</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>

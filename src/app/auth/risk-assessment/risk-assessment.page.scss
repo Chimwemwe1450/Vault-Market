@@ -1,0 +1,59 @@
+@import '../../../theme/variables.scss';
+
+.bg-awards {
+  background-image: url("../../../assets/bg-awards.png");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.swiper {
+  height: 100%;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.footer-nav {
+  --background: var(--toolbar);
+}
+
+.text-button {
+  padding: 10px;
+  color: var(--ion-color-secondary);
+}
+
+.step-container {
+  max-width: 80%;
+}
+
+.awards-img {
+  width: 100%;
+}
+
+.awards-bg-img {
+  width: 80%;
+  // position: absolute;
+    z-index: 0;
+  //   bottom: 0;
+  opacity: 0.5;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.awards-container {
+  width: 100%;
+  z-index: 5;
+  position: absolute;
+  bottom: 80px;
+}
+
+.cont {
+  background: var(--block-background);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

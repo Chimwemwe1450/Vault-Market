@@ -1,0 +1,9 @@
+<div class="risk-assess-padding input-block-highlight input-block input-block-highlight">
+  <h1>Risk Assessment</h1>
+  <ion-text class="body-text-color">
+    <p class="subheading">What is the name of the country where your bank is located?</p>
+  </ion-text>
+  <app-search-select-list class="select-dropdown" placeholder="select here..." header="Select Country"
+    [value]="residence" [list]="countries" (valueSelected)="inputChanged($event)">
+  </app-search-select-list>
+</div>

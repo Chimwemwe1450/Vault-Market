@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "901457263265",
+    "project_id": "vaultmarketsmobileapp",
+    "storage_bucket": "vaultmarketsmobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901457263265:android:57ba5696f1c9e678d28ee0",
+        "android_client_info": {
+          "package_name": "com.vault.markets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901457263265-i3fs8dtk588fgc1uu380akvctnud8qji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt5VFsrFeIHRt2oD2bTYBGRucALXqlHTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901457263265-i3fs8dtk588fgc1uu380akvctnud8qji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

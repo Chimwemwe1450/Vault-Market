@@ -1,0 +1,30 @@
+export class Profile {
+  fname: string;
+  mname: string;
+  lname: string;
+  registration_dt: Date;
+  registration_ts: string;
+  country_id: string;
+  tel1: string;
+  tel1_country_code: string;
+  tel1_provider_code: string;
+  login: string;
+  email: string;
+  currency: string;
+  company: string;
+  customer_no: string;
+  countryName: string;
+  city: string;
+  address: string;
+  province: string;
+  zip: string;
+  tel_pass: string;
+  image_portrait: string;
+  status_id: string;
+  is_ib: string;
+  tag: string;
+  extended_fields: any;
+  introducer: string;
+  image: any;
+  profile_image_url: string;
+}

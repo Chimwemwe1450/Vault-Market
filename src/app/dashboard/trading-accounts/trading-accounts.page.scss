@@ -1,0 +1,64 @@
+@import '../../../theme/variables.scss';
+
+.trading-acc-block {
+  padding: 10px;
+}
+
+.text-block {
+  color: var(--body-text);
+  display: block;
+  padding: 15px 0;
+}
+
+.text-highlight {
+  color: var(--heading-text);
+}
+
+// #tradingAccSelector {
+//   padding: 10px 15px;
+// }
+
+// .input-block-highlight {
+//   background: var(--background-secondary);
+// }
+
+// #trading-view-container {
+//   margin: 15px;
+//   padding: 15px;
+//   background: #fff;
+//   border-radius: 7px;
+// }
+
+
+.cal-margin {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.banner {
+  background-color: var(--input-background);
+  color: #000;
+  text-align: center;
+  position: fixed;
+  padding-left: 15px;
+  padding-right: 15px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
+  // display: flex;
+  // justify-content: space-between;
+  align-items: center;
+
+}
+
+.m-b {
+  margin-bottom: -0.5px;
+  color: var(--background-tertiary);
+}
+
+.m-t {
+  margin-top: -0.5px;
+  color: var(--highlight);
+  font-weight: bolder;
+}

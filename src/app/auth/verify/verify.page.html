@@ -1,0 +1,86 @@
+<app-kyc-header></app-kyc-header>
+<ion-content>
+  <div class="screen-container">
+
+    <div class="heading center-text block-margin">
+      <ion-text class="body-text-color" size="large">
+        <h4>Complete your Profile</h4>
+        <p>You are 3 easy steps away from being Verified, please provide the below documentation.</p>
+        <i>NOTE: Withdrawal functionality may be limited if this process is not completed.</i>
+      </ion-text>
+      <br>
+      <br>
+    </div>
+
+    <div id="content-main">
+      <div class="body-top input-block-padding">
+            <div class="upload-input-blocks">
+              <div class="upload-button ion-activatable ripple-parent fileUpload">
+                <div (click)="onImagePick('idDoc')" class="upload-input-block">
+                  <div class="upload-text">
+                    Proof of ID
+                  </div>
+                  <div class="upload-icon" interface="popover" >
+                    <ion-icon *ngIf="filesUploaded.idDoc" name="checkmark-circle-outline" size="large" color="success"></ion-icon>
+                    <ion-icon *ngIf="!filesUploaded.idDoc" name="add-circle-outline" size="large"></ion-icon>
+                  </div>
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+              <!-- <div class="file-label">
+                <ion-label>{{filesUploaded.idDoc.title}}</ion-label>
+              </div> -->
+            </div>
+
+            <div class="upload-input-blocks"interface="popover" >
+              <div class="upload-button ion-activatable ripple-parent fileUpload" interface="popover" >
+                <div (click)="onImagePick('residenceDoc')" interface="popover"   class="custom-option" class="upload-input-block">
+                  <div class="upload-text">
+                    Proof of Residence
+                  </div>
+                  <div class="upload-icon">
+                    <ion-icon *ngIf="filesUploaded.residenceDoc" name="checkmark-circle-outline" size="large" color="success"></ion-icon>
+                    <ion-icon *ngIf="!filesUploaded.residenceDoc" name="add-circle-outline" size="large"></ion-icon>
+                  </div>
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </div>
+            <div class="upload-input-blocks">
+              <div class="upload-button ion-activatable ripple-parent fileUpload">
+                <div (click)="onImagePick('verifyDoc')" class="upload-input-block">
+                  <div class="upload-text" >
+                    Face Photo
+                  </div>
+                  <div class="upload-icon">
+                    <ion-icon *ngIf="filesUploaded.verifyDoc" name="checkmark-circle-outline" size="large" color="success"></ion-icon>
+                    <ion-icon *ngIf="!filesUploaded.verifyDoc" name="add-circle-outline" size="large"></ion-icon>
+                  </div>
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer class="footer-nav">
+  <ion-toolbar class="footer-nav">
+    <div id="footer">
+      <ion-button class="link-button"
+                  color="secondary"
+                  fill="outline"
+                  (click)="continueLater()">continue later
+      </ion-button>
+      <ion-button [fill]='verifyButton.style'
+                  [disabled]="verifyButton.disabled"
+                  expand="block"
+                  color="secondary"
+                  (click)="onSubmit()"
+                  title="Get Verified">Get Verified
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

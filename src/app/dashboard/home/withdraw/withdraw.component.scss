@@ -1,0 +1,19 @@
+@import '../../../../theme/variables.scss';
+
+.trading-acc-block {
+  padding: 10px;
+}
+
+.payment-method-block {
+  // padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.odd-row {
+  background: var(--color-four);
+}
+
+.table-heading {
+  color: var(--background-tertiary)
+}

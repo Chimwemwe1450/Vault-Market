@@ -1,0 +1,15 @@
+<div class="risk-assess-padding input-block-highlight input-block input-block-highlight">
+  <h1>Risk Assessment</h1>
+  <ion-text class="body-text-color">
+    <p class="subheading">What is the source of your funds?</p>
+  </ion-text>
+  <ion-item fill="outline">
+    <ion-label color="input-label" position="floating">
+      select here...
+    </ion-label>
+    <ion-select [(ngModel)]="sourceOfFunds" (ionChange)="inputChanged()" interface="popover">
+      <ion-select-option *ngFor="let source of sources" [value]="source">{{source}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>

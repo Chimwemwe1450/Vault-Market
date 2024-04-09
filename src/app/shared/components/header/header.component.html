@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar id="header">
+    <div id="header-content">
+      <ion-buttons slot="start">
+        <div class="header-logo logo-image"></div>
+      </ion-buttons>
+      <div class="header__title">{{ pageTitle }}</div>
+      <ion-buttons slot="end">
+        <!-- <div *ngIf="!profileComplete.complete" class="header-icon">
+          <ion-icon color="toolbar-icon" size="large" name="alert-circle" (click)="profileCompletion()"></ion-icon>
+        </div> -->
+        <div class="header-icon menu-icon">
+          <ion-icon color="toolbar-icon" size="small" [name]=modeIcon (click)="displayMode()"></ion-icon>
+        </div>
+        <!-- <div class="header-icon">
+          <ion-icon color="toolbar-icon" size="large" name="chatbox-ellipses" (click)="showChat()"></ion-icon>
+        </div> -->
+        <!-- <div class="header-icon ">
+          <ion-icon color="toolbar-icon" size="small" name="notifications" (click)="notifications()"></ion-icon>
+        </div> -->
+        <ion-menu-button color="toolbar-icon" autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    </div>
+
+  </ion-toolbar>
+</ion-header>

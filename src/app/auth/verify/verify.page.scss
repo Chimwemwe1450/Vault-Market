@@ -1,0 +1,88 @@
+@import '../../../theme/variables.scss';
+
+.verify-logo {
+  width: 30%;
+  margin: 20px auto;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.footer-nav {
+  --background: var(--toolbar);
+}
+
+.upload-button {
+  background: var(--block-background);
+  // border: 1px solid var(--ion-color-secondary);
+  position: relative;
+  height: 70px;
+  border-radius: 7px;
+  color: var(--ion-color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 10px;
+  font-family: 'Tauri';
+}
+
+// File upload button //
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+}
+
+.fileUpload ion-input.upload {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+//--//
+
+.file-label {
+  margin-top: 10px;
+  color: var(--body-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+  ion-label {
+    white-space: nowrap;
+  }
+}
+
+.block-margin {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.upload-input-blocks {
+  margin-bottom: 15px;
+}
+
+.upload-input-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.upload-icon {
+  display: flex;
+  margin-left: 15px;
+}
+button.custom-option {
+  color: red !important;
+}
+

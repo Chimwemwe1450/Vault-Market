@@ -1,0 +1,48 @@
+@import '../../../../theme/variables.scss';
+
+#header {
+  --background: var(--toolbar);
+}
+
+#header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header-col-1,
+#header-col-2 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#header-col-2 {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon {
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 5px;
+}
+
+.header-logo {
+  width: 50px;
+    height: 28px;
+    margin-left: 12px;
+    margin-right: 39px;
+}
+
+.menu-icon {
+  padding-right: 0px;
+}
+
+.header__title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0;
+  color: var(--highlight);
+  font-size: var(--regular-font);
+}

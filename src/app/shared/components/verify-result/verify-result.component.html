@@ -1,0 +1,87 @@
+<app-kyc-header></app-kyc-header>
+
+<ion-content>
+  <div id="content-block">
+    <div class="heading center-text">
+      <ion-text class="body-text-color" size="large">
+        <h4>Verification {{success ? 'Successful !' : 'Failed'}}</h4>
+      </ion-text>
+    </div>
+
+    <ion-text class="text-block">
+      <div *ngIf="success else failure">
+        <app-approved class="icon"></app-approved>
+      </div>
+      <ng-template #failure>
+        <app-declined class="icon"></app-declined>
+      </ng-template>
+      <p *ngIf="success === false">{{error}}</p>
+    </ion-text>
+
+    <div *ngIf="success === false">
+      <div class="details-block">
+        <ion-text class="support-block">
+          <p>Are you having verification challenges?<br>
+            Contact us to get verified quickly and easily.</p>
+          <div class="button-container-vertical">
+            <ion-button fill="outline"
+                        color="secondary"
+                        href="mailto:help@vaultmarkets.trade">Email Support
+              <ion-icon slot="end" name="mail-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="outline"
+                        color="secondary"
+                        href="https://wa.me/27740246890?text=I%20need%20support%20please.">WhatsApp
+              <ion-icon slot="end" name="logo-whatsapp"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-text>
+      </div>
+      <div class="help-block">
+        <ion-text>
+          <p class="center-text">What went wrong?</p>
+          <ol class="troubleshoot-list">
+            <li>
+              Make sure your <i>Proof of Residence</i> and <i>Identity</i>
+              documents are scanned in and not screenshots. No document edges should be visible.
+            </li>
+            <hr class="hr-style">
+            <li>
+              Your address supplied upon registration and on your <i>Proof of Residence</i> should match exactly.
+            </li>
+            <hr class="hr-style">
+            <li>
+              Your <i>Face Photo</i> should be clear of any obstructions and taken in good lighting.
+            </li>
+          </ol>
+        </ion-text>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-nav">
+    <div id="footer">
+      <div class="button-container-vertical">
+        <ion-button *ngIf="success === false"
+                    class="link-button"
+                    color="secondary"
+                    fill="outline"
+                    (click)="onButtonClick('skip')">Skip
+        </ion-button>
+        <ion-button *ngIf="success === false"
+                    color="secondary"
+                    expand="block"
+                    (click)="onButtonClick('again')">Try Again
+        </ion-button>
+        <ion-button *ngIf="success"
+                    color="secondary"
+                    expand="block"
+                    (click)="onButtonClick('confirm')">Confirm
+        </ion-button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

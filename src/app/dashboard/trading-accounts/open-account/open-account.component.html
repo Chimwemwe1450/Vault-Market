@@ -1,0 +1,737 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="content-block">
+    <form [formGroup]="createTradingAccForm">
+      <h4 class="center-text highlight-text">Open Account</h4>
+      <br>
+
+      <div class="button-container">
+        <ion-button (click)="toggleCompTable()" expand="block" color="secondary"
+          title="account comparison table">{{compTableLabel}}
+        </ion-button>
+      </div>
+      <div *ngIf="showCompTable" class="comp-table">
+        <br>
+        <div class="comp-table-inner">
+
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">200% Bonus Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $5
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  1 Pip
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  MT4
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  Included
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">100% Bonus Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $5
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  1:500
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  From 1 Pip
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  MT4
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  Included (100%)
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">50% Bonus Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $%
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  No Hedging Allowed
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">Islamic / Swop Free Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $100
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  1:500
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  From 1 Pip
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  MT4
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">Zero Spread Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $100
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  1:500
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  From 0 Pips
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  MT4
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">No Bonus Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $5
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  1:500
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  From 1 Pip
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  MT4
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">USD Cent Based Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $5
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  1:500
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  From 1 Pip
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  MT4
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">Weekend Trading Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $5
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  VIX75, Crypto, VIX100
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="product">
+            <ion-grid>
+              <ion-row class="table-header">
+                <ion-col class="highlight-text">1:1000 Leverage Account</ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Minimum Deposit
+                </ion-col>
+                <ion-col>
+                  $5
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Leverage
+                </ion-col>
+                <ion-col>
+                  1:1000
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Spread
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Instruments
+                </ion-col>
+                <ion-col>
+                  Forex, Shares, Indices, Crypto
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col>
+                  Platform
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row odd-row">
+                <ion-col>
+                  Bonus
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+              <ion-row class="product-row">
+                <ion-col class="ion-justify-content-center">
+                  -
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <!-- <ion-grid>
+            <ion-row class="table-header">
+              <ion-col></ion-col>
+              <ion-col>200% Bonus Account</ion-col>
+              <ion-col>100% Bonus Account</ion-col>
+              <ion-col>50% Bonus Account</ion-col>
+              <ion-col>Islamic/Swop Free Account </ion-col>
+              <ion-col>Zero Spread Account</ion-col>
+              <ion-col>No Bonus Account</ion-col>
+              <ion-col>USD Cent Based Account</ion-col>
+              <ion-col>Weekend Trading Account</ion-col>
+              <ion-col>1:1000 Leverage Account</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">Minimum Deposit</ion-col>
+              <ion-col>$5</ion-col>
+              <ion-col>$5</ion-col>
+              <ion-col>$5</ion-col>
+              <ion-col>$100</ion-col>
+              <ion-col>$100</ion-col>
+              <ion-col>$5</ion-col>
+              <ion-col>$5</ion-col>
+              <ion-col>$5</ion-col>
+              <ion-col>$5</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">Leverage</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>1:500</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>1:500</ion-col>
+              <ion-col>1:500</ion-col>
+              <ion-col>1:500</ion-col>
+              <ion-col>1:500</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>1:1000</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">Spread</ion-col>
+              <ion-col>1 Pip</ion-col>
+              <ion-col>From 1 pip</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>From 1 pip</ion-col>
+              <ion-col>From 0 pips</ion-col>
+              <ion-col>From 1 pip</ion-col>
+              <ion-col>From 1 pip</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">Instruments</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+              <ion-col>Forex, Shares, Indices, Crypto</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">Platform</ion-col>
+              <ion-col>MT4</ion-col>
+              <ion-col>MT4</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>MT4</ion-col>
+              <ion-col>MT4</ion-col>
+              <ion-col>MT4</ion-col>
+              <ion-col>MT4</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">Bonus</ion-col>
+              <ion-col>Included</ion-col>
+              <ion-col>Included (100%)</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+              <ion-col>-</ion-col>
+            </ion-row>
+            <ion-row class="row-data">
+              <ion-col class="row-heading">.</ion-col>
+              <ion-col>.</ion-col>
+              <ion-col>.</ion-col>
+              <ion-col>No Hedging Allowed</ion-col>
+              <ion-col>.</ion-col>
+              <ion-col>.</ion-col>
+              <ion-col>.</ion-col>
+              <ion-col>.</ion-col>
+              <ion-col>VIX75, Crypto, VIX100</ion-col>
+              <ion-col>.</ion-col>
+            </ion-row>
+          </ion-grid> -->
+        </div>
+      </div>
+      <br>
+
+      <div id="currency-select">
+        <ion-radio-group formControlName="currency" class="inline-radio" (ionChange)="currencySelection($event)"
+          value="zar">
+          <ion-item class="generic-ion-item" lines="none">
+            <ion-label class="highlight-text">$ USD</ion-label>
+            <ion-radio color="secondary" slot="start" value="usd"></ion-radio>
+          </ion-item>
+
+          <ion-item class="generic-ion-item" lines="none">
+            <ion-label class="highlight-text">R ZAR</ion-label>
+            <ion-radio color="secondary" slot="start" value="zar"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+      <br>
+      <div class="input-block-padding">
+        <ion-item class="input-style">
+          <ion-label color="input-label" position="floating">Type</ion-label>
+          <ion-select formControlName="type">
+            <ion-select-option value="MT4">bonus account</ion-select-option>
+            <ion-select-option value="MT5">non bonus account</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item *ngIf="createTradingAccForm.get('type').value === 'MT5'">
+          <ion-label color="input-label" position="floating">Select Account</ion-label>
+          <ion-select formControlName="currency" (ionChange)="onTypeChange()">
+            <ion-select-option value="No Bonus">Vault No Bonus</ion-select-option>
+            <ion-select-option value="option2">Vault Zero</ion-select-option>
+            <ion-select-option value="free">Vault Swop Free</ion-select-option>
+            <ion-select-option value="1000">Vault 1000</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item *ngIf="createTradingAccForm.get('type').value === 'MT4'">
+          <ion-label color="input-label" position="floating">Select Account</ion-label>
+          <ion-select formControlName="nonBonusAccountType"  >
+            <ion-select-option value="200"> Vault 200 </ion-select-option>
+            <ion-select-option value="100">Vault 100</ion-select-option>
+            <ion-select-option value="Micro">Vault Micro 100 </ion-select-option>
+            <ion-select-option value="Micro 200">Vault Micro 200 </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="input-style" lines="full">
+          <ion-label color="input-label" position="floating">Select Leverage</ion-label>
+          <ion-select formControlName="leverage">
+            <ng-container *ngFor="let lev of leverages">
+              <ion-select-option *ngIf="!isVault1000Selected" [value]="lev">{{ lev.title }}</ion-select-option>
+            </ng-container>
+            <ion-select-option *ngIf="isVault1000Selected"
+              [value]="{leverage_id: 'appropriate_value', val: '1000', title: '1000'}">1000</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+      </div>
+      <br>
+
+      <!-- <ion-text class="text-block">
+        <p>In order to proceed please enter your Profile password.
+        </p>
+      </ion-text>
+      <ion-item fill="outline">
+        <ion-label color="input-label" position="floating">
+          Your Profile Password
+        </ion-label>
+        <ion-input name="profile password"
+                  type="text">
+        </ion-input>
+      </ion-item> -->
+      <br>
+      <div class="button-container">
+        <ion-button (click)="onAccountCreate()" expand="block" color="secondary" title="submit request">Submit Request
+        </ion-button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>

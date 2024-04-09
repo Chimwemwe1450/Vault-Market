@@ -1,0 +1,22 @@
+<ion-content>
+  <br>
+  <ion-card class="input-block input-block-padding input-block-highlight title title-card shadow-none">
+    <p class="heading">The <span class="bold">Trading</span> <span class="bold text-secondary">
+        Vault</span>
+    </p>
+    <p class="content">Listen to industry leaders via our unique podcast below and be inspired by traders who have been
+      where you are today.</p>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row *ngFor="let webinar of webinars">
+
+      <ion-card class="input-block input-block-highlight shadow-none">
+        <img class="webinar-image" [src]="webinar.imageUrl">
+        <ion-card-content class="ion-text-center">
+          <ion-button class="watch-button" [href]="webinar.videoUrl" color="black">Watch Video</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

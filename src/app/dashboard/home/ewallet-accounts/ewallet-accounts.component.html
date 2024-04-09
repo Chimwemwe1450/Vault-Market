@@ -1,0 +1,61 @@
+<div *ngIf="data.length; else noData">
+  <div *ngFor="let wallet of data" class="content-block input-block input-block-highlight input-block-padding">
+    <ion-text class="body-text-color grey-text">
+      <ion-grid>
+        <!-- <ion-row>
+          <ion-col id="date-col">
+            <div>
+              <span>CARD HOLDER</span><br>
+              <span class="text-highlight">Vault Test</span>
+            </div>
+            <span>
+              <ion-badge color="secondary">Valid</ion-badge>
+            </span>
+          </ion-col>
+        </ion-row> -->
+        <!-- <hr class="hr-style"> -->
+        <ion-row>
+          <ion-col>
+            CURRENCY:
+          </ion-col>
+          <ion-col>
+            <span class="text-highlight">{{wallet.currency}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row class="odd-row">
+          <ion-col>
+            BALANCE:
+          </ion-col>
+          <ion-col>
+            <span class="text-highlight">{{wallet.balance}} <i>{{wallet.currency}}</i></span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            CREDIT:
+          </ion-col>
+          <ion-col>
+            <span class="text-highlight">{{wallet.credit}} <i>{{wallet.currency}}</i></span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-text>
+  </div>
+</div>
+
+<br>
+
+<ng-template #noData>
+  <div class="center-text">
+    <br>
+    <ion-text class="body-text-color grey-text">
+      No accounts found.
+      <br>
+      <br>
+      <ion-item class="small-button" id="open-account-button" lines="none" button (click)="launchModal()">
+        <ion-label>Open Account</ion-label>
+        <ion-icon color="secondary" name="add-circle-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-text>
+  </div>
+</ng-template>

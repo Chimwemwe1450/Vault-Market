@@ -1,0 +1,10 @@
+<ion-app id="app-container">
+  <ng-container *ngIf="toolbar.display">
+    <app-header></app-header>
+  </ng-container>
+  <app-menu></app-menu>
+  <ion-router-outlet id="main" [ngClass]="pageOffset()"></ion-router-outlet>
+  <ng-container *ngIf="toolbar.display">
+    <app-footer [active]="activeTab"></app-footer>
+  </ng-container>
+</ion-app>

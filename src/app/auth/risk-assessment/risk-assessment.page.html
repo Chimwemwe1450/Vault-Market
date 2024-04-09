@@ -1,0 +1,64 @@
+<app-kyc-header></app-kyc-header>
+<ion-content>
+  <div class="bg-awards">
+    <swiper #assessmentSlider (swiper)="setSwiperInstance($event)" [config]="slideOpts">
+      <ng-template swiperSlide>
+        <app-step-one class="step-container" (nextSlide)="nextButtonState($event)"
+          (sendDataBack)="updateStepData($event)">
+        </app-step-one>
+      </ng-template>
+      <ng-template swiperSlide>
+        <app-step-two class="step-container" (nextSlide)="nextButtonState($event)"
+          (sendDataBack)="updateStepData($event)">
+        </app-step-two>
+      </ng-template>
+      <ng-template swiperSlide>
+        <app-step-three class="step-container" (nextSlide)="nextButtonState($event)"
+          (sendDataBack)="updateStepData($event)">
+        </app-step-three>
+      </ng-template>
+      <ng-template swiperSlide>
+        <app-step-four class="step-container" (nextSlide)="nextButtonState($event)"
+          (sendDataBack)="updateStepData($event)">
+        </app-step-four>
+      </ng-template>
+      <ng-template swiperSlide>
+        <app-step-five class="step-container" (nextSlide)="nextButtonState($event)"
+          (sendDataBack)="updateStepData($event)">
+        </app-step-five>
+      </ng-template>
+    </swiper>
+
+  </div>
+</ion-content>
+
+
+<div class="cont">
+  <ion-slides [options]="slideOptions">
+    <ion-slide *ngFor="let image of images">
+      <img [src]="image" class="awards-img" alt="Slide">
+    </ion-slide>
+  </ion-slides>
+</div>
+
+
+<!-- <ion-img class="awards-bg-img" src="../../../assets/awards-background.jpg">
+</ion-img> -->
+
+<ion-footer>
+  <ion-toolbar class="footer-nav">
+    <div id="footer">
+      <ion-button class="link-button" [disabled]="disableButtons.later" color="secondary" fill="outline"
+        (click)="continueLater()">continue later
+      </ion-button>
+      <div *ngIf="hideSubmit; else submitButton">
+        <ion-button color="secondary" [disabled]="disableButtons.next" (click)="goNext()">Next
+        </ion-button>
+      </div>
+      <ng-template #submitButton>
+        <ion-button color="secondary" [disabled]="disableButtons.submit" (click)="submit()">Submit
+        </ion-button>
+      </ng-template>
+    </div>
+  </ion-toolbar>
+</ion-footer>

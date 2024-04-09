@@ -1,0 +1,216 @@
+<ion-content>
+  <div id="register-container">
+    <br><br>
+    <div class="register-logo logo-image">
+    </div>
+
+    <br>
+    <h3 class="center-text highlight-text">REGISTER</h3>
+    <br>
+
+    <form [formGroup]="registrationForm">
+      <div id="register-block">
+        <div class="input-block input-block-padding input-block-highlight ">
+          <!-- <div class="scrollable-content"> -->
+          <div>
+            <br>
+
+            <div id="entity-select">
+              <ion-radio-group class="" (ionChange)="entitySelection($event)" value="individual">
+                <ion-item class="generic-ion-item" lines="none">
+                  <ion-label class="label-radio">Individual</ion-label>
+                  <ion-radio color="secondary" slot="start" value="individual"></ion-radio>
+                </ion-item>
+
+                <ion-item class="generic-ion-item" lines="none">
+                  <ion-label class="label-radio">Company</ion-label>
+                  <ion-radio color="secondary" slot="start" value="company"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </div>
+            <ng-container *ngIf="entitySelect === 'company'">
+              <ion-item class="input-style" #companyName lines="full"
+                [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['company'].invalid}">
+                <ion-label color="input-label" position="floating">
+                  Company Name
+                </ion-label>
+                <ion-input name="company" formControlName="company" inputmode="text" type="text">
+                </ion-input>
+              </ion-item>
+              <br>
+            </ng-container>
+
+            <ion-item class="input-style" #individualName lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['fname'].invalid}">
+              <ion-label color="input-label" position="floating">
+                First Name
+              </ion-label>
+              <ion-input name="fname" formControlName="fname" inputmode="text" type="text">
+              </ion-input>
+              <ion-text
+                *ngIf="registrationForm.controls['fname'].touched && (registrationForm.controls['fname'].invalid || registrationForm.controls['fname'].errors)"
+                id="fname-help" class="input-invalid">*not a valid first name
+              </ion-text>
+            </ion-item>
+            <br>
+
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['lname'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Last Name
+              </ion-label>
+              <ion-input name="lname" formControlName="lname" inputmode="text" type="text">
+              </ion-input>
+              <ion-text
+                *ngIf="registrationForm.controls['lname'].touched && (registrationForm.controls['lname'].invalid || registrationForm.controls['lname'].errors)"
+                id="lname-help" class="input-invalid">*not a valid last name
+              </ion-text>
+            </ion-item>
+            <br>
+
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['email'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Email Address
+              </ion-label>
+              <ion-input name="email" formControlName="email" inputmode="email" type="email">
+              </ion-input>
+              <ion-text
+                *ngIf="registrationForm.controls['email'].touched && (registrationForm.controls['email'].invalid || registrationForm.controls['email'].errors)"
+                id="email-help" class="input-invalid">*not a valid email address
+              </ion-text>
+            </ion-item>
+            <br>
+
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['password'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Enter Password
+              </ion-label>
+              <ion-input name="password" formControlName="password" type="password">
+              </ion-input>
+              <ion-text
+                *ngIf="registrationForm.controls['password'].touched && (registrationForm.controls['password'].invalid || registrationForm.controls['password'].errors)"
+                id="password-help" class="input-invalid">*password should be at least 8 characters long and consist of
+                letters, numbers, symbols and a capital letter, eg. X!2d65gD
+              </ion-text>
+            </ion-item>
+            <br>
+
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['confirmPassword'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Confirm Password
+              </ion-label>
+              <ion-input name="confirmPassword" formControlName="confirmPassword" type="password">
+              </ion-input>
+              <ion-text
+                *ngIf="registrationForm.controls['confirmPassword'].touched && (registrationForm.controls['confirmPassword'].invalid || registrationForm.controls['confirmPassword'].errors)"
+                id="confirmPassword-help" class="input-invalid">*password should be at least 8 characters long and
+                consist
+                of letters, numbers, symbols and a capital letter, eg. X!2d65gD
+              </ion-text>
+            </ion-item>
+            <br>
+
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['currency'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Currency
+              </ion-label>
+              <app-country-select-list [displayValue]="selectedCurrency.name" [value]="selectedCurrency"
+                [list]="currencies" (valueSelected)="currencySelected($event)">
+              </app-country-select-list>
+            </ion-item>
+            <br>
+
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['country_id'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Nationality
+              </ion-label>
+              <app-country-select-list [displayValue]="selectedCountry.name" [value]="selectedCountry"
+                [list]="countries" (valueSelected)="countrySelected($event)">
+              </app-country-select-list>
+              <ion-icon color="secondary" slot="end" name="help-circle-outline" (click)="nationalityModal()">
+              </ion-icon>
+            </ion-item>
+            <br>
+            <div id="phone-number-input">
+              <ion-item class="input-style" lines="full"
+                [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['tel_country_code'].invalid}">
+                <ion-label color="input-label" position="floating">
+                  Code
+                </ion-label>
+                <app-country-select-list [displayValue]="selectedDialCode.code" [value]="selectedDialCode"
+                  [list]="dialCodes" (valueSelected)="dialCodeSelected($event)">
+                </app-country-select-list>
+              </ion-item>
+              <ion-item class="input-style" lines="full"
+                [ngClass]="{'ion-invalid ion-touched':navigate && registrationForm.controls['tel_number'].invalid}">
+                <ion-label color="input-label" position="floating">
+                  Telephone
+                </ion-label>
+                <ion-input name="telephone" formControlName="tel_number" inputmode="tel" type="number">
+                </ion-input>
+                <ion-text
+                  *ngIf="registrationForm.controls['tel_number'].touched && (registrationForm.controls['tel_number'].invalid || registrationForm.controls['tel_number'].errors)"
+                  id="tel_number-help" class="input-invalid">*not a valid telephone number
+                </ion-text>
+              </ion-item>
+            </div>
+            <br>
+
+            <div id="term-agreement">
+              <ion-item class="generic-ion-item toggle" lines="none">
+                <ion-label class="smaller-text">I have read and accepted the:</ion-label>
+                <ion-toggle class="toggle-button" [checked]="terms" (ionChange)="termsAgreement()"></ion-toggle>
+              </ion-item>
+              <ion-item id="term-agreement-links" lines="none">
+                <ion-text>
+                  <ul>
+                    <li><a target="_blank"
+                        href="https://vaultmarkets.trade/wp-content/uploads/Vaultmarkets-Pty-Ltd-AML-Policy-v2.0-Updated-11-Oct-2021.pdf">AML
+                        Policy</a></li>
+                    <li><a target="_blank"
+                        href="https://vaultmarkets.trade/wp-content/uploads/Vaultmarkets-Pty-Ltd-Client-Agreement-v2.0-Updated-11-Oct-2021.pdf">Client
+                        Agreement</a></li>
+                    <li><a target="_blank"
+                        href="https://vaultmarkets.trade/wp-content/uploads/Complaints-Management-Policy.pdf">Complaints
+                        Policy</a></li>
+                    <li><a target="_blank"
+                        href="https://vaultmarkets.trade/wp-content/uploads/Vaultmarkets-Pty-Ltd-Privacy-Policy-v2.0-Updated-11-Oct-2021.pdf">Privacy
+                        Policy</a></li>
+                    <li><a target="_blank"
+                        href="https://vaultmarkets.trade/wp-content/uploads/Vaultmarkets-Pty-Ltd-Risk-Disclosure-v2.0-Updated-11-Oct-2021.pdf">Risk
+                        Disclosure</a></li>
+                    <li><a target="_blank"
+                        href="https://vaultmarkets.trade/wp-content/uploads/Vaultmarkets-Pty-Ltd-Website-Disclaimers-v2.0-Updated-11-Oct-2021-2.pdf">Website
+                        Disclaimers</a></li>
+                  </ul>
+                </ion-text>
+              </ion-item>
+            </div>
+            <br>
+
+            <div class="button-container-right">
+              <ion-button expand="block" color="secondary" (click)="onSubmit()" title="Register">Register
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </form>
+  </div>
+  <br>
+
+  <div class="ripple-effect ion-activatable ripple-parent center-text login-links">
+    <ion-text color="secondary" routerLink="/auth/login">
+      Already have an account? Go to Login
+    </ion-text>
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
+  <br>
+
+</ion-content>

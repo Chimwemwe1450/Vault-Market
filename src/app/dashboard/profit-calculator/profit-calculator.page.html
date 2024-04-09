@@ -1,0 +1,61 @@
+<ion-content>
+  <div class="screen-container">
+
+    <div class="screen-padding">
+
+      <br>
+
+      <div class="input-block-highlight input-block-padding input-block">
+        <form #profitForm="ngForm" (ngSubmit)="calculateProfit()">
+          <ion-item class="input-style">
+            <ion-label position="stacked">Account Currency:</ion-label>
+            <ion-select [(ngModel)]="accountCurrency" name="accountCurrency" required>
+              <ion-select-option value="AUD">AUD</ion-select-option>
+              <!-- Add other options for account currencies here -->
+            </ion-select>
+          </ion-item>
+          <ion-item class="input-style">
+            <ion-label position="stacked">Currency Pair:</ion-label>
+            <ion-select [(ngModel)]="currencyPair" name="currencyPair" required>
+              <ion-select-option value="AUD/USD">AUD/USD</ion-select-option>
+              <!-- Add other options for currency pairs here -->
+            </ion-select>
+          </ion-item>
+          <ion-item class="input-style">
+            <ion-label position="stacked">Trade Side:</ion-label>
+            <ion-select [(ngModel)]="tradeSide" name="tradeSide" required>
+              <ion-select-option value="buy">Buy (Long)</ion-select-option>
+              <ion-select-option value="sell">Sell (Short)</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="input-style">
+            <ion-label position="stacked">Position Size (in Units):</ion-label>
+            <ion-input type="number" [(ngModel)]="positionSize" name="positionSize" required></ion-input>
+          </ion-item>
+          <ion-item class="input-style">
+            <ion-label position="stacked">Open Price:</ion-label>
+            <ion-input type="number" [(ngModel)]="openPrice" name="openPrice" required></ion-input>
+          </ion-item>
+          <ion-item class="input-style">
+            <ion-label position="stacked">Close Price:</ion-label>
+            <ion-input type="number" [(ngModel)]="closePrice" name="closePrice" required></ion-input>
+          </ion-item>
+          <ion-item class="input-style">
+            <ion-label position="stacked">Period (in Days):</ion-label>
+            <ion-input type="number" [(ngModel)]="period" name="period" required></ion-input>
+          </ion-item>
+          <ion-button class="watch-button" type="submit" [disabled]="!profitForm.valid">Calculate Profit</ion-button>
+        </form>
+        <br>
+        <div *ngIf="profit !== null">
+          <ion-item class="input-style">
+            <ion-label>Profit (in {{ accountCurrency }}):</ion-label>
+            <ion-text>{{ profit }}</ion-text>
+          </ion-item>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

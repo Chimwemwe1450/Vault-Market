@@ -1,0 +1,109 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="wallet-man-block">
+    <form [formGroup]="withdrawForm">
+      <h4 class="center-text highlight-text">Make a Withdrawal</h4>
+      <br>
+      <div class="input-block-padding">
+        <ion-item class="input-style" lines="full">
+          <ion-label color="input-label" position="floating">
+            Enter Amount <span *ngIf="selectedAccounts.from.currency">({{selectedAccounts.from.currency}})</span>
+          </ion-label>
+          <ion-input formControlName="amount" name="amount" inputmode="numeric" type="number">
+          </ion-input>
+        </ion-item>
+      </div>
+      <div *ngIf="!displayWithdrawTable" class="button-container">
+        <br>
+        <ion-button (click)="withdrawRequest()" color="secondary">
+          Submit Request
+        </ion-button>
+
+      </div>
+      <br>
+      <!-- <h6 class="center-text">Pending Withdrawals</h6>
+      <div class="slide-table">
+        <div class="slide-table-inner">
+          <ion-grid>
+            <ion-row class="table-header">
+              <ion-col>TYPE</ion-col>
+              <ion-col>BANK ACCOUNT NUMBER</ion-col>
+              <ion-col>REQUEST REF.</ion-col>
+              <ion-col>DATE OF REQUEST</ion-col>
+              <ion-col>FEE</ion-col>
+              <ion-col>AMOUNT</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <br> -->
+      <ng-container *ngIf="displayWithdrawTable">
+        <div class="trading-acc-block">
+          <h4 class="center-text highlight-text">Select Payment Method</h4>
+          <br>
+          <div class="trading-accounts-list">
+            <div class="payment-method-block">
+              <ion-text class="drawer-body-text-color grey-text">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-item class="input-style" class="input-style">
+                        <ion-label color="input-label" position="floating">
+                          Select Your Bank acount
+                        </ion-label>
+                        <ion-select formControlName="account">
+                          <ion-select-option *ngFor="let acc of bankAccData" [value]="acc.customer_bank_account_id">
+                            {{acc.bank_account_no}}
+                          </ion-select-option>
+
+                        </ion-select>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                  <br>
+          
+                  <ion-row class="odd-row">
+                    <ion-col>
+                      Amount:
+                    </ion-col>
+                    <ion-col size="4">
+                      <span class="text-highlight">{{this.withdrawForm.get('amount').value}}{{this.withdrawForm.get('currency').value}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      Total Deposits:
+                    </ion-col>
+                    <ion-col size="4">
+                      <span class="text-highlight">
+                        <p> {{ currentDepositAmount }} {{this.withdrawForm.get('currency').value}}</p>
+                      </span>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="odd-row">
+                    <ion-col>
+                      Total Withdrawals:
+                    </ion-col>
+                    <ion-col size="4">
+                      <span class="text-highlight"> {{this.withdrawForm.get('amount').value}}{{this.withdrawForm.get('currency').value}}</span>
+
+                    </ion-col>
+                  </ion-row>
+              
+                  <br>
+                </ion-grid>
+              </ion-text>
+              <div class="button-container">
+                <ion-button (click)="onWithdrawSubmit()" color="secondary" title="withdraw">Withdraw
+                </ion-button>
+
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </form>
+  </div>
+
+
+</ion-content>

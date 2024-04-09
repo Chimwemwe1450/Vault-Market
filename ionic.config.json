@@ -1,0 +1,7 @@
+{
+  "name": "Vault Markets",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

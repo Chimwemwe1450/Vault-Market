@@ -1,0 +1,16 @@
+{
+	"appId": "com.vault.markets",
+	"appName": "Vault Markets",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  },
+  "cordova": {
+    "staticPlugins": [
+      "Freshchat"
+    ]
+  }
+}

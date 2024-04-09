@@ -1,0 +1,15 @@
+<ion-item fill="outline">
+  <ion-label color="input-label" position="floating">
+    {{placeholder}}
+  </ion-label>
+  <ion-icon
+    name="caret-down"
+    color="input-label"
+    slot="end">
+  </ion-icon>
+  <ion-input
+    readonly
+    [(ngModel)]="value"
+    (click)="launchModal()">
+  </ion-input>
+</ion-item>

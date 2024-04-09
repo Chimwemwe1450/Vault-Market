@@ -1,0 +1,162 @@
+<ion-menu-toggle>
+  <ion-menu (ionWillClose)="menuClosed()" (ionWillOpen)="menuOpened()" side="end" type="overlay" swipeGesture="true"
+    menuId="sideMenu" contentId="main" [disabled]="disableMenu">
+    <ion-content class="toolbar">
+      <ion-grid [ngClass]="{'ios-menu': iosDevice}" class="toolbar">
+        <ion-row id="profile-container" class="toolbar">
+          <ion-col size="4">
+            <div class="avatar-container">
+              <!-- If the profileImageUrl is not null, display the image. Otherwise, use the saved image. If neither are available, display the default icon. -->
+              <ng-container *ngIf="profileImageUrl || getSavedImage(); else defaultIcon">
+                <img [src]="profileImageUrl || getSavedImage()" alt="Profile Image" />
+              </ng-container>
+            
+              <ng-template #defaultIcon>
+                <ion-icon color="secondary" id="profile-placeholder" name="person-circle-outline"></ion-icon>
+              </ng-template>
+            </div>
+          
+            
+          </ion-col>
+          <ion-col size="8">
+            <div id="profile-summary">
+              <ion-text id="full-name">{{userMenuData.firstName || '...'}} {{userMenuData.lastName || '...'}}</ion-text>
+              <div id="account">
+                <div>
+                  <ion-text color="secondary" style="font-size:85%; margin-top:10px;">Account:</ion-text><br>
+                  <ion-text>{{accountType || '-'}} {{account || '-'}}</ion-text>
+                </div>
+                <div>
+                  <ion-text class="highlight-text">{{balance || '0'}} {{userMenuData.currency}}</ion-text>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-list class="menu-items">
+        <hr class="hr-style">
+
+        <p class="subheading" slot="start">Home</p>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item1'}" (click)="selectItem('item1')" class="toolbar"
+          lines="none" routerLink="/dashboard">
+          <ion-text class="menu-text">
+            Dashboard
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="home" size="small"></ion-icon>
+        </ion-item>
+        <hr class="hr-style">
+        <p class="subheading" slot="start">Tools</p>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item2'}" (click)="selectItem('item2')" class="toolbar"
+          lines="none" routerLink="/dashboard/trading-accounts">
+          <ion-text class="menu-text">
+            Trading
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="stats-chart" size="small"></ion-icon>
+        </ion-item>
+
+
+        <!-- <ion-item [ngClass]="{'selected': selectedItem === 'item3'}" (click)="selectItem('item3')" class="toolbar"
+          lines="none" routerLink="/dashboard/profit-calculator">
+          <ion-text class="menu-text">
+            Profit Calculator
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="cash" size="small"></ion-icon>
+        </ion-item> -->
+        <hr class="hr-style">
+        <p class="subheading" slot="start">Education</p>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item4'}" (click)="selectItem('item4')" class="toolbar"
+          lines="none" routerLink="/dashboard/webinar">
+          <ion-text class="menu-text">
+            Podcasts
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="videocam" size="small"></ion-icon>
+        </ion-item>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item5'}" (click)="selectItem('item5')" class="toolbar"
+          lines="none" routerLink="/dashboard/terminologies">
+          <ion-text class="menu-text">
+            Terminologies
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="document-text" size="small"></ion-icon>
+        </ion-item>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item6'}" (click)="selectItem('item6')" class="toolbar"
+          lines="none" routerLink="/dashboard/blogs">
+          <ion-text class="menu-text">
+            Blogs
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="create" size="small"></ion-icon>
+        </ion-item>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item7'}" (click)="selectItem('item7')" class="toolbar"
+          lines="none" routerLink="/dashboard/ebooks">
+          <ion-text class="menu-text">
+            EBooks
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="book" size="small"></ion-icon>
+        </ion-item>
+        <!-- <hr class="hr-style">
+        <ion-item [ngClass]="{'selected': selectedItem === 'item1'}" (click)="selectItem('item1')" class="toolbar" lines="none">
+          <ion-text class="menu-text">
+            MetaTrader
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="call"></ion-icon>
+        </ion-item> -->
+        <hr class="hr-style">
+        <p class="subheading" slot="start">Info</p>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item8'}" (click)="selectItem('item8')" class="toolbar"
+          lines="none" routerLink="/dashboard/faq">
+          <ion-text class="menu-text">
+            FAQ
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="help-circle" size="small"></ion-icon>
+        </ion-item>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item9'}" (click)="selectItem('item9')" class="toolbar"
+          routerLink="/dashboard/about" lines="none">
+          <ion-text class="menu-text">
+            Terms & Conditions
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="newspaper" size="small"></ion-icon>
+        </ion-item>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item10'}" (click)="selectItem('item10')" class="toolbar"
+          lines="none" routerLink="/dashboard/contact">
+          <ion-text class="menu-text">
+            Contact & Support
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="headset" size="small"></ion-icon>
+        </ion-item>
+        <hr class="hr-style">
+        <!-- <ion-item [ngClass]="{'selected': selectedItem === 'item1'}" (click)="selectItem('item1')" class="toolbar" lines="none" routerLink="/auth/verify">
+          Verify
+          <ion-icon color="secondary" slot="start" name="happy"></ion-icon>
+        </ion-item>
+        <hr class="hr-style">
+        <ion-item [ngClass]="{'selected': selectedItem === 'item1'}" (click)="selectItem('item1')" class="toolbar" lines="none" routerLink="/auth/risk-assessment">
+          Risk Assessment
+          <ion-icon color="secondary" slot="start" name="happy"></ion-icon>
+        </ion-item>
+        <hr class="hr-style"> -->
+        <p class="subheading" slot="start">Account</p>
+        <!-- <ion-item [ngClass]="{'selected': selectedItem === 'item1'}" (click)="selectItem('item1')" class="toolbar" lines="none" routerLink="/dashboard/wallet">
+          <ion-text class="menu-text">
+            My Wallet
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="wallet"></ion-icon>
+        </ion-item> -->
+        <ion-item [ngClass]="{'selected': selectedItem === 'item11'}" (click)="selectItem('item11')" class="toolbar"
+          lines="none" routerLink="/dashboard/profile">
+          <ion-text class="menu-text">
+            My Profile
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="person" size="small"></ion-icon>
+        </ion-item>
+        <ion-item [ngClass]="{'selected': selectedItem === 'item12'}" (click)="selectItem('item12')" class="toolbar"
+          (click)="logUserOut()" lines="none">
+          <ion-text class="menu-text">
+            Sign Out
+          </ion-text>
+          <ion-icon class="menu-icon" color="secondary" slot="start" name="log-out" size="small"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+</ion-menu-toggle>

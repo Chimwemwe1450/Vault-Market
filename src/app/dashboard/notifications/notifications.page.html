@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-list *ngIf="notifications.length > 0; else noNotifications">
+    <ion-list-header>
+      Notifications
+    </ion-list-header>
+
+    <ion-item *ngFor="let notification of notifications">
+      <ion-label>
+        <h2>{{ notification.title }}</h2>
+        <p>{{ notification.body }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noNotifications>
+    <p>No notifications at this time.</p>
+  </ng-template>
+
+  <ion-button (click)="showNotificationData()">
+    Show notification
+  </ion-button>
+</ion-content>

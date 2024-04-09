@@ -1,0 +1,697 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// swiper.js
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';
+@import 'swiper/scss/pagination';
+
+ion-content {
+  font-family: 'Tauri';
+  --ion-font-family: 'Tauri';
+  --background: var(--global-background);
+}
+
+@font-face {
+  font-family: 'Tauri';
+  src: url('./assets/fonts/Tauri-Regular.ttf');
+}
+@font-face {
+  font-family: 'Outfit-Bold';
+  src: url('./assets/fonts/Outfit-Bold.ttf');
+}
+@font-face {
+  font-family: 'Segoe';
+  src: url('./assets/fonts/Segoe-UI.ttf');
+}
+
+body {
+  // --ion-text-color: pink;
+  font-family: 'Tauri';
+  --ion-font-family: 'Tauri';
+}
+h1, h2, h3, h5 {
+  color: var(--heading-text);
+  font-family: 'Tauri';
+}
+h4, h6 {
+  color: var(--heading-text);
+  font-family: 'Tauri';
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.body-text-color {
+  color: var(--body-text);
+}
+.body-text-color-alt,
+.body-text-color-alt a {
+  color: var(--body-text);
+}
+.center-text {
+  text-align: center;
+}
+
+
+.screen-container {
+  padding-bottom: 70px;
+}
+
+.screen-padding {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.input-invalid {
+  color: var(--ion-color-danger);
+  font-size: var(--small-font);
+  padding-bottom: 10px;
+  // text-align: center;
+  width: 100%;
+}
+
+// <ion-item> //
+.custom-ion-item {
+  --background: green;
+  --border-color: yellow;
+}
+ion-item {
+  // --background: var(--input-background);
+  // REMOVE ANY BACKGROUND //
+  --background: none;
+  --color: var(--heading-text);
+  --highlight-color-focused: var(--ion-color-secondary);
+  --border-color: var(--ion-color-secondary);
+  overflow: hidden;
+}
+//--//
+
+// <ion-label> //
+.item-fill-outline.item-has-value .label-floating.sc-ion-label-md-h,
+.item-fill-outline.item-has-focus .label-floating.sc-ion-label-md-h {
+  background: none;
+}
+.item-fill-outline.item-has-value .label-floating.sc-ion-label-md-h::after,
+.item-fill-outline.item-has-focus .label-floating.sc-ion-label-md-h::after,
+.item-fill-outline.item-has-value .label-floating.sc-ion-label-md-h::before,
+.item-fill-outline.item-has-focus .label-floating.sc-ion-label-md-h::before {
+  width: unset;
+}
+//--//
+
+// <ion-input> & <ion-textarea> //
+ion-input {
+  transform: translateY(-5px);
+}
+
+.item-fill-outline.item-has-value .label-floating.sc-ion-label-md-h,
+.item-fill-outline.item-has-focus .label-floating.sc-ion-label-md-h {
+  transform: translateY(5px) scale(0.75);
+}
+//--//
+
+.item-label-stacked.sc-ion-input-md-h,
+.item-label-stacked .sc-ion-input-md-h,
+.item-label-floating.sc-ion-input-md-h,
+.item-label-floating .sc-ion-input-md-h {
+  --padding-bottom: 0;
+}
+
+// <ion-select> //
+ion-alert {
+  .alert-wrapper.sc-ion-alert-md,
+  .alert-wrapper.sc-ion-alert-ios {
+    background-color: var(--alert);
+  }
+
+  // Header Text
+  .alert-title.sc-ion-alert-md,
+  .alert-title.sc-ion-alert-ios {
+    color: var(--alert-heading);
+  }
+
+  .alert-message.sc-ion-alert-md,
+  .alert-message.sc-ion-alert-ios {
+    color: var(--alert-heading);
+  }
+
+  // checkbox border color
+  [aria-checked="true"].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md,
+  [aria-checked="true"].sc-ion-alert-ios .alert-radio-icon.sc-ion-alert-ios {
+    border-color: var(--alert-body);
+  }
+
+  // checkbox or radio button color
+  .alert-radio-inner.sc-ion-alert-md,
+  .alert-radio-inner.sc-ion-alert-ios {
+    background-color: var(--alert-body) !important;
+  }
+
+  // wrap the text
+  .alert-radio-label.sc-ion-alert-md,
+  .alert-radio-label.sc-ion-alert-ios {
+    color: var(--alert-body);
+    white-space: pre-wrap;
+  }
+
+  // Height of text
+  .alert-tappable.sc-ion-alert-md,
+  .alert-tappable.sc-ion-alert-ios {
+    height: auto;
+    contain: content;
+  }
+
+  // Checked text color
+  [aria-checked="true"].sc-ion-alert-md .alert-radio-label.sc-ion-alert-md,
+  [aria-checked="true"].sc-ion-alert-ios .alert-radio-label.sc-ion-alert-ios {
+    color: var(--alert-heading);
+  }
+
+  // Button color
+  .alert-button-inner.sc-ion-alert-md,
+  .alert-button-inner.sc-ion-alert-ios {
+    color: var(--alert-heading);
+  }
+}
+//--//
+
+// <ion-select-popover> //
+ion-select-popover {
+  .list-md,
+  .list-ios {
+    background: var(--block-background);
+  }
+
+  // Header Text
+  .alert-title.sc-ion-alert-md,
+  .alert-title.sc-ion-alert-ios {
+    color: var(--ion-color-tertiary);
+  }
+
+  // wrap the text
+  .item .sc-ion-label-md-h,
+  .item .sc-ion-label-ios-h {
+    white-space: pre-wrap;
+  }
+
+  // Height of text
+  .alert-tappable.sc-ion-alert-md,
+  .alert-tappable.sc-ion-alert-ios {
+    height: auto;
+    contain: content;
+  }
+}
+
+// TABLE //
+.slide-table {
+  background: var(--background-secondary);
+  color: var(--body-text);
+  width: 100%;
+  overflow-x: scroll;
+  touch-action: pan-x;
+}
+
+.slide-table-inner {
+  width: 1000px;
+  ion-col {
+    border-right: 1px solid var(--background-tertiary);
+    display: flex;
+    align-items: center;
+  }
+}
+
+.table-header ion-col {
+  font-family: 'Tauri';
+  background: transparent;
+  border: 1px solid var(--ion-color-tertiary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.row-heading {
+  background: var(--ion-color-tertiary);
+  color: var(--ion-color-primary);
+  text-align: center;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+.row-data:nth-child(even) {
+  background: var(--color-four);
+}
+//--//
+
+.select-blocks {
+  background: var(--block-background);
+  // border: 1px solid var(--ion-color-secondary);
+  position: relative;
+  height: 80px;
+  border-radius: 7px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 10px;
+  font-family: 'Tauri';
+  font-size: var(--small-font);
+}
+
+.select-blocks-active {
+  color: var(--heading-text);
+}
+
+.select-blocks-container {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.heading {
+  width: 100%;
+}
+
+.custom-card {
+  border: 1px solid var(--ion-color-secondary);
+}
+
+.link-button {
+  --border-width: 0;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container-vertical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-container-right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container-modal {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  ion-button {
+    --color: var(--ion-color-tertiary);
+  }
+}
+
+.ripple-effect {
+  position: relative;
+}
+
+.inline-radio {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.generic-ion-item {
+  --background: none;
+  --color: var(--body-text);
+}
+
+.hr-style {
+  height: 2px;
+  margin: 0px 5px 0px 5px;
+  border-width: 0;
+  box-sizing: content-box;
+}
+
+.edit-input-block {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-input-item {
+  width: 100%;
+}
+
+.clean-ion-input {
+  --background: var(--ion-color-primary);
+}
+
+.edit-input-icon {
+  // color: var(--ion-color-secondary);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background: var(--ion-color-secondary);
+}
+
+// PROGRESS BAR //
+ion-progress-bar::part(track) {
+  background: var(--background-tertiary);
+}
+
+ion-progress-bar {
+  height: 23px;
+  width: calc(100% - 55px);
+}
+// -- //
+
+.search-list-modal-class {
+  --max-height: 60vh;
+  /* max-height: 60vh; */
+  --width: 70vw;
+  /* min-height: -webkit-fill-available; */
+  /* --height: fit-content; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* overflow: hidden; */
+  /* position: absolute; */
+  flex-direction: column;
+  --min-height: 10vh;
+  // --height: fit-content;
+}
+
+app-country-select-list {
+  width: 100%;
+}
+
+.input-block {
+  border-radius: var(--radius-blocks);
+}
+
+.input-block-padding {
+  padding: 15px 15px;
+}
+
+.input-block-highlight {
+  background: var(--block-background);
+}
+
+.input-style {
+  background-color: var(--input-bg);
+  border-radius: 7px 7px 0px 0px;
+}
+
+.risk-assess h1 {
+  color: var(--highlight);
+}
+
+.risk-assess ion-text {
+  color: var(--background-tertiary);
+}
+
+.risk-assess-padding {
+  padding: 25px;
+
+}
+
+.select-dropdown {
+  border-radius: var(--radius-blocks);
+}
+
+ion-button {
+  font-family: "Tauri";
+  --border-width: 1px;
+}
+
+ion-text {
+  font-family: "Tauri";
+}
+
+.toggle {
+  ion-label.smaller-text {
+    font-size: var(--small-font);
+  }
+}
+
+// LOADER //
+.my-custom-loader {
+	--background: transparent;
+  ion-backdrop {
+		background-color: var(--ion-color-primary);
+		opacity: .7 !important;
+	}
+  ion-spinner {
+    width: 50px;
+    --color: var(--ion-color-secondary);
+    height: 50px;
+  }
+	.loading-wrapper {
+		box-shadow: none;
+		-webkit-box-shadow: none;
+    color: var(--body-text);
+	}
+}
+//--//
+
+// INFINITE SCROLL //
+.infinite-scroll-content-md .infinite-loading-text,
+.infinite-scroll-content-ios .infinite-loading-text {
+  color: var(--body-text);
+}
+
+ion-infinite-scroll-content {
+  ion-spinner {
+    --color: var(--body-text);
+  }
+}
+// -- //
+.active-item2 {
+  ion-label {
+    color: var(--ion-color-secondary);
+  }
+}
+.drawer-modal-content {
+  --background: var(--block-background);
+  --padding-bottom: 25px;
+  --padding-top: 15px;
+}
+
+.drawer-modal {
+  --border-radius: var(--radius-blocks);
+  --backdrop-opacity: 0.8;
+}
+
+ion-modal.drawer-modal::part(content) {
+  position: relative;
+  --varPer: 80%;
+  bottom: calc(100vh - 94%);
+  height: var(--varPer);
+}
+
+.drawer-heading {
+  color: var(--highlight);
+
+}
+
+.drawer-body-text-color {
+  color: var(--highlight);
+
+}
+
+.wallet-man-block {
+  padding: 10px;
+}
+
+.text-block {
+  color: var(--body-text);
+  display: block;
+  padding: 15px 0;
+}
+
+// SEGMENT BUTTON //
+ion-segment-button {
+  // --background: var(--block-background);
+  // --background-checked: var(--color-four);
+  --color: var(--heading-text);
+  --color-checked: var(--ion-color-secondary);
+  --indicator-color: var(--ion-color-secondary);
+  --indicator-height: 1px;
+  font-family: "Tauri";
+  font-size: var(--small-font);
+  ion-label {
+    text-transform: none;
+  }
+}
+
+ion-segment-button:first-child {
+  border-radius: var(--radius-blocks) 0 0 0;
+}
+ion-segment-button:last-child {
+  border-radius: 0 var(--radius-blocks) 0 0;
+}
+// -- //
+
+// BADGE //
+ion-badge {
+  font-family: "Tauri";
+  /* font-size: var(--small-font); */
+  font-weight: inherit;
+}
+//--//
+
+.small-button {
+  font-size: var(--small-font);
+  width: fit-content;
+  color: var(--ion-color-secondary);
+  --padding-start: 5px;
+  --padding-end: 5px;
+  --inner-padding-start: 5px;
+  --inner-padding-end: 5px;
+  --min-height: 0;
+  ion-icon {
+    font-size: var(--regular-font);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-inline-start: 5px;
+  }
+  ion-label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+ion-tab-button {
+  --color-selected: var(--ion-color-secondary);
+  --color-unselected: grey;
+  --background: transparent;
+  --background-selected: white;
+  --background-unselected: #8c8c8c;
+  --underline-selected:
+}
+
+ion-tab-button[aria-selected="false"] {
+  background-color: grey;
+}
+
+ion-tab-button[aria-selected="true"] {
+  border-bottom: 2px solid var(--ion-color-secondary);
+}
+
+ion-tabs {
+  background-color: rgba(255, 255, 255, 0);
+  --background: transparent;
+}
+
+io-tab-bar {
+  background-color: rgba(255, 255, 255, 0);
+  --background: transparent;
+}
+
+ion-accordion {
+  background: var(--block-background);
+}
+
+ion-accordion ion-label {
+  color: var(--highlight);
+}
+
+ion-accordion div {
+  color: var(--body-text-alt);
+}
+
+// ELEMENT DEFINITIONS
+.watch-button {
+  color: #ffffff;
+  --background: var(--ion-color-secondary);
+  background: var(--ion-color-secondary);
+  border-radius: 2px;
+}
+
+.title-card {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.shadow-none {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.input-style {
+  background-color: var(--color-four);
+  border-radius: 7px 7px 0px 0px;
+  margin-bottom: 10px;
+}
+
+ion-fab-button {
+  --ion-fab-button-size: 32px; /* Set your custom size here */
+}
+
+.deposit-icon {
+  margin-left: 5px;
+}
+
+// COLOR DEFINITIONS
+hr {
+  // color: var(--hr);
+  background-color: var(--hr);
+}
+
+.text-primary {
+  color: var(--ion-color-primary);
+}
+
+.text-secondary {
+  color: var(--ion-color-secondary);
+}
+
+.grey-text {
+  color: var(--ion-color-tertiary);
+}
+
+.highlight-text {
+  color: var(--highlight);
+}
+
+.text-tertiary {
+  color:var(--background-tertiary);
+}
+
+.toolbar {
+  background-color: var(--toolbar);
+}
+
+.subheading {
+  color: var(--subheading);
+}
+
+.alert {
+  background-color: var(--alert);
+}
+
+  button.custom-option {
+    color: black !important;
+  }
+  

@@ -1,0 +1,101 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="wallet-man-block">
+    <form [formGroup]="depositForm">
+      <h4 class="center-text highlight-text">Make a Deposit</h4>
+      <br>
+      <div class="input-block input-block-padding">
+        <ion-item class="input-style" lines="full">
+          <ion-label color="input-label" position="floating">
+            Choose your Currency
+          </ion-label>
+          <ion-select formControlName="currency" (ngModelChange)="onCurrencyChange()">
+            <ion-select-option value="ZAR">South Africa (ZAR)</ion-select-option>
+            <ion-select-option value="usd">United states (USD)</ion-select-option>
+            <ion-select-option value="Tanzania">Tanzania (TZS)</ion-select-option>
+            <ion-select-option value="Botswana">Botswana (BOT)</ion-select-option>
+            <ion-select-option value="Nigeria">Nigeria (NG)</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-item class="input-style" lines="full">
+          <ion-label color="input-label" position="floating">
+            Amount
+          </ion-label>
+          <ion-input formControlName="amount" name="amount" inputmode="numeric" type="number">
+          </ion-input>
+        </ion-item>
+        <br>
+        <div *ngIf="(depositForm.controls['amount'].valid) && (depositForm.value.currency !== null)"
+          id="payment-select">
+          <br>
+          <ion-label color="subheading" position="floating" style="margin-left:15px;">
+            Payment Method:
+          </ion-label>
+          <br>
+          <br>
+          <ion-radio-group formControlName="paymentMethod">
+            <ion-item *ngFor="let solution of pspSolutions" class="generic-ion-item" lines="none">
+              <ion-label>
+                <img id="solution-image" src="../../../assets/{{solution.image}}">
+              </ion-label>
+              <ion-radio color="secondary" slot="start" [value]="solution.name">
+              </ion-radio>
+            </ion-item>
+
+          </ion-radio-group>
+
+        </div>
+        <div [ngSwitch]="depositForm.controls['paymentMethod'].value">
+          <div *ngSwitchCase="'Paymaxis'">
+            <!-- Zotapay specific details go here -->
+            <ion-item class="input-style">
+              <ion-label position="floating">Card number</ion-label>
+              <ion-input formControlName="cardnumber" type="text" type="password"></ion-input>
+            </ion-item>
+
+            <ion-item class="input-style">
+              <ion-label position="floating">Cardholder Name</ion-label>
+              <ion-input formControlName="cardname" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item class="input-style">
+              <ion-label position="floating">Card Security Code</ion-label>
+              <ion-input formControlName="cardcvv" type="password"></ion-input>
+            </ion-item>
+
+            <ion-item class="input-style">
+              <ion-label position="floating">Expiry Month</ion-label>
+              <ion-input formControlName="cardexpiremonth" type="text" type="password"></ion-input>
+            </ion-item>
+
+            <ion-item class="input-style">
+              <ion-label position="floating">Expiry Year</ion-label>
+              <ion-input formControlName="cardexpireyear" type="text" type="password"></ion-input>
+            </ion-item>
+
+          </div>
+          <div *ngSwitchCase="'OtherMethod'">
+            <!-- OtherMethod specific details go here -->
+          </div>
+          <!-- Add more cases as needed -->
+          <!-- Default case can be added as well -->
+          <div *ngSwitchDefault>
+            <!-- Default case details go here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <!-- Call onSubmit() when the Proceed button is clicked -->
+        <ion-button (click)="onSubmit()" color="secondary">
+          Proceed
+        </ion-button>
+
+
+      </div>
+    </form>
+  </div>
+
+
+
+</ion-content>

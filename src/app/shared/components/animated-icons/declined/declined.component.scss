@@ -1,0 +1,70 @@
+@import '../../../../../theme/variables.scss';
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#cross {
+  stroke: var(--highlight);
+  stroke-width: 8;
+  transition: all 1s;
+}
+
+#circle {
+  stroke: var(--highlight);
+  stroke-width: 8;
+  transform-origin: 50px 50px 0;
+  transition: all 1s;
+}
+
+.progress #cross {
+  opacity: 0;
+}
+
+.ready #cross {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLine 1s ease-out forwards;
+}
+
+.progress #circle {
+  stroke: #4c4c4c;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 1000;
+  animation: spin 3s linear infinite;
+}
+
+.ready #circle {
+  stroke-dashoffset: 66;
+  stroke: var(--highlight);
+}
+
+#circle {
+  stroke-dasharray: 500;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    stroke-dashoffset: 66;
+  }
+  50% {
+    transform: rotate(540deg);
+    stroke-dashoffset: 314;
+  }
+  100% {
+    transform: rotate(1080deg);
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+

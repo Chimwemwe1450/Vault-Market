@@ -1,0 +1,88 @@
+@import '../../../theme/variables.scss';
+
+// .my-custom-menu {
+//   --background: var(--toolbar);
+// }
+
+ion-content {
+  --background: var(--toolbar);
+  background: var(--toolbar);
+}
+
+ion-item {
+  // height: 38px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+ion-list {
+  background: none;
+}
+
+.menu-items {
+  --background: var(--toolbar);
+}
+
+.menu-text {
+  color: var(--heading-text);
+}
+
+.menu-icon {
+  padding-left: 10px;
+}
+
+.line {
+  height: 2px;
+  border: none;
+  // background-color: red;
+  color: white
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: white;
+}
+
+#profile-container {
+  display: flex;
+  align-items: center;
+  // background: var(--color-four);
+}
+
+#profile-summary {
+  color: var(--heading-text);
+}
+
+#profile-placeholder {
+  width: 70px;
+  height: 70px;
+}
+
+.ios-menu {
+  padding-top: 25px;
+}
+
+#full-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
+
+.subheading {
+  padding-left: 25px;
+  // color: var(--hr);
+  font-weight: lighter;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.selected {
+  background-color: rgba(200, 144, 6, 0.2);
+  color: #ffffff;
+  width: 80%;
+  border-radius: 0 20px 20px 0;
+}

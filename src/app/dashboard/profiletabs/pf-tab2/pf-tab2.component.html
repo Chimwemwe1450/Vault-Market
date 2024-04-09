@@ -1,0 +1,469 @@
+<ion-content>
+  <div class="screen-container">
+
+    <div class="screen-padding">
+
+      <br>
+
+      <div class="input-block input-block-padding input-block-highlight">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="5">
+              <div class="avatar-container">
+                <div id="profile-pic">
+                  <ng-container *ngIf="getSavedImage() ; else avatarPlaceholder">
+                    <img [src]="getSavedImage() ">
+                  </ng-container>
+
+                  <ng-template #avatarPlaceholder>
+                    <ion-icon color="secondary" id="profile-placeholder" name="person-circle-outline"></ion-icon>
+                  </ng-template>
+
+                  <div style="position: relative; display: flex;">
+                    <div style="position: relative; display: flex; align-items: center;">
+                      <ion-icon color="tertiary" size="large" name="add-circle-outline"></ion-icon>
+                      <input type="file" id="avatar" (change)="onAvatarUpload($event)"
+                        style="position: static; opacity: 0; width: 100%;">
+                    </div>
+
+                    <div style="position: relative; display: flex; align-items: center;">
+                      <ion-icon (click)="deleteSavedImage()" color="tertiary" size="large"
+                        name="remove-circle-outline"></ion-icon>
+                      <input type="file" id="avatar" (change)="onAvatarUpload($event)"
+                        style="position: static; opacity: 0; width: 100%;">
+                      <!-- <button ion-button color="danger" style="position: absolute; top: 0; right: 0;">Delete</button> -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </ion-col>
+            <ion-col size="7">
+              <div id="profile-summary">
+                <ion-text class="text-sm">{{data?.fname || '-'}}</ion-text><br>
+                <ion-text class="highlight-text">{{data?.lname || '-'}}</ion-text>
+                <div id="acc-number">
+                  <ion-text class="text-sm">Account Number:</ion-text><br>
+                  <ion-text class="highlight-text">{{data?.customer_no || 'N/A'}}</ion-text>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <br>
+
+      <div class="input-block input-block-highlight input-block-padding">
+        <div class="heading center-text">
+          <ion-text class="body-text-color" size="large">
+            <h4>Edit Details</h4>
+          </ion-text>
+        </div>
+
+        <div id="profile-block">
+          <div class="input-block-padding">
+            <form [formGroup]="emailForm">
+              <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.emailForm}">
+                <ion-item class="edit-input-item input-style" lines="full"
+                  [ngClass]="{'ion-invalid ion-touched': emailForm.controls['email'].invalid}">
+                  <ion-label class="input-label" position="floating">
+                    Email Address
+                  </ion-label>
+                  <ion-input formControlName="email" name="email" inputmode="email" type="email">
+                  </ion-input>
+                </ion-item>
+                <ion-icon class="" color="secondary" size="large"
+                  [name]="enableEditing.emailForm ? 'create' : 'create-outline'" (click)="editControl('emailForm')">
+                </ion-icon>
+              </div>
+              <div @fadeAnimation *ngIf="enableEditing.emailForm"
+                class="input-block input-block-padding input-block-highlight">
+                <ion-text class="text-block body-text-color-alt">
+                  <p class="text-par">Once your additional email address has been submitted you will receive an email
+                    containing a validation link. If you do not receive this email within 30 minutes,
+                    please re-enter your email address. Please check your spam folder and make sure
+                    that your inbox is active and not full. If you continue to experience problems,
+                    please contact support for help.
+                  </p>
+                  <ion-item class=" input-style" lines="full"
+                    [ngClass]="{'ion-invalid ion-touched': emailForm.controls['email2'].invalid}">
+                    <ion-label class="input-label" position="floating">
+                      Add New Email Address
+                    </ion-label>
+                    <ion-input formControlName="email2" name="email2" inputmode="email" type="email">
+                    </ion-input>
+                  </ion-item>
+                </ion-text>
+                <br>
+                <div class="button-container">
+                  <ion-button (click)="updateDetails('emailForm')" expand="block" color="secondary" title="save">Save
+                  </ion-button>
+                </div>
+                <br>
+              </div>
+            </form>
+
+            <br>
+            <form [formGroup]="phoneNumberForm">
+              <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.phoneNumberForm}">
+                <ion-item class="edit-input-item  input-style" lines="full"
+                  [ngClass]="{'ion-invalid ion-touched': phoneNumberForm.controls['tel1'].invalid}">
+                  <ion-label class="input-label" position="floating">
+                    Phone Number
+                  </ion-label>
+                  <ion-input formControlName="tel1" name="phoneNumber" inputmode="tel" type="number">
+                  </ion-input>
+                </ion-item>
+                <ion-icon class="" size="large" color="secondary"
+                  [name]="enableEditing.phoneNumberForm ? 'create' : 'create-outline'"
+                  (click)="editControl('phoneNumberForm')">
+                </ion-icon>
+              </div>
+              <div @fadeAnimation *ngIf="enableEditing.phoneNumberForm"
+                class="input-block input-block-padding input-block-highlight">
+                <!-- <br> -->
+                <ion-text class="text-block">
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Phone Number 2
+                    </ion-label>
+                    <ion-input formControlName="tel2" name="phoneNumber2" inputmode="tel" type="number">
+                    </ion-input>
+                  </ion-item>
+                  <br>
+                  <ion-item class=" input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Phone Number 3
+                    </ion-label>
+                    <ion-input formControlName="tel3" name="phoneNumber3" inputmode="tel" type="number">
+                    </ion-input>
+                  </ion-item>
+                </ion-text>
+                <br>
+                <div class="button-container">
+                  <ion-button (click)="closeBlock('phoneNumberForm')" fill="outline" expand="block" color="tertiary"
+                    title="cancel">Cancel
+                  </ion-button>
+                  <ion-button (click)="updateDetails('phoneNumberForm')" expand="block" color="secondary"
+                    title="save">Save
+                  </ion-button>
+                </div>
+                <br>
+              </div>
+            </form>
+
+            <br>
+            <!-- <form [formGroup]="profileForm"> -->
+            <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.dob}">
+              <ion-item class="edit-input-item  input-style" lines="full">
+                <ion-label class="input-label" position="floating">
+                  Date of Birth
+                </ion-label>
+                <ion-input disabled="true" name="dob" type="text">
+                </ion-input>
+              </ion-item>
+              <ion-icon class="" size="large" color="secondary" [name]="enableEditing.dob ? 'create' : 'create-outline'"
+                (click)="editControl('dob')">
+              </ion-icon>
+            </div>
+            <!-- </form> -->
+
+            <br>
+            <form [formGroup]="addressForm">
+              <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.addressForm}">
+                <ion-item class="edit-input-item  input-style" lines="full"
+                  [ngClass]="{'ion-invalid ion-touched': addressForm.controls['address'].invalid}">
+                  <ion-label class="input-label" position="floating">
+                    Address
+                  </ion-label>
+                  <ion-input formControlName="address" name="address" inputmode="text" type="text">
+                  </ion-input>
+                </ion-item>
+                <ion-icon class="" size="large" color="secondary"
+                  [name]="enableEditing.addressForm ? 'create' : 'create-outline'" (click)="editControl('addressForm')">
+                </ion-icon>
+              </div>
+              <div @fadeAnimation *ngIf="enableEditing.addressForm"
+                class="input-block input-block-padding input-block-highlight">
+                <ion-text class="text-block">
+                  <ion-item class=" input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Building Number
+                    </ion-label>
+                    <ion-input formControlName="buildingNumber" name="buildingNumber" inputmode="text" type="text">
+                    </ion-input>
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      City
+                    </ion-label>
+                    <ion-input formControlName="city" name="city" inputmode="text" type="text">
+                    </ion-input>
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Zip / Post Code
+                    </ion-label>
+                    <ion-input formControlName="zip" name="postalCode" inputmode="text" type="text">
+                    </ion-input>
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Country
+                    </ion-label>
+                    <app-country-select-list [displayValue]="selectedCountry.name" [value]="selectedCountry"
+                      [list]="countries" (valueSelected)="countrySelected($event)">
+                    </app-country-select-list>
+                    <!-- <ion-input formControlName="countryName"
+                          name="country"
+                          type="text">
+                </ion-input> -->
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      State / Province
+                    </ion-label>
+                    <ion-input formControlName="province" name="province" inputmode="text" type="text">
+                    </ion-input>
+                  </ion-item>
+                </ion-text>
+                <br>
+                <div class="button-container">
+                  <ion-button (click)="closeBlock('addressForm')" fill="outline" expand="block" color="tertiary"
+                    title="cancel">Cancel
+                  </ion-button>
+                  <ion-button (click)="updateDetails('addressForm')" expand="block" color="secondary" title="save">Save
+                  </ion-button>
+                </div>
+                <br>
+              </div>
+            </form>
+
+            <br>
+            <form [formGroup]="passwordForm">
+              <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.passwordForm}">
+                <ion-item class="edit-input-item  input-style " lines="full">
+                  <ion-text class="input-label" position="floating">
+                    Password
+                  </ion-text>
+                </ion-item>
+                <ion-icon class="" size="large" color="secondary"
+                  [name]="enableEditing.passwordForm ? 'create' : 'create-outline'"
+                  (click)="editControl('passwordForm')">
+                </ion-icon>
+              </div>
+              <div @fadeAnimation *ngIf="enableEditing.passwordForm"
+                class="input-block input-block-padding input-block-highlight">
+                <ion-text class="text-block body-text-color-alt">
+                  <div class="button-container">
+                    <ion-button (click)="resetPassword()" expand="block" color="secondary" title="reset password">Send
+                      Reset Password Link
+                    </ion-button>
+                  </div>
+                  <p class="text-par">Please note: you are about to change the password to your member area.
+                    This will NOT change the password to your Trading accounts.
+                    Should you wish to change your Trading Account password, please visit the Trading Account section.
+                  </p>
+                </ion-text>
+                <br>
+                <div class="button-container">
+                  <ion-button (click)="closeBlock('passwordForm')" fill="outline" expand="block" color="tertiary"
+                    title="cancel">Cancel
+                  </ion-button>
+                </div>
+                <br>
+              </div>
+            </form>
+
+            <br>
+            <form [formGroup]="secQuestionsForm">
+              <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.secQuestionsForm}">
+                <ion-item class="edit-input-item input-style" lines="full">
+                  <ion-text class="input-label" position="floating">
+                    Security Questions
+                  </ion-text>
+                </ion-item>
+                <ion-icon class="" size="large" color="secondary"
+                  [name]="enableEditing.secQuestionsForm ? 'create' : 'create-outline'"
+                  (click)="editControl('secQuestionsForm')">
+                </ion-icon>
+              </div>
+              <div @fadeAnimation *ngIf="enableEditing.secQuestionsForm"
+                class="input-block input-block-padding input-block-highlight">
+                <ion-text class="text-block">
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Security Question 1
+                    </ion-label>
+                    <ion-select formControlName="question1">
+                      <ion-select-option value="jpn">What is the first and last name of your first boyfriend or
+                        girlfriend?</ion-select-option>
+                      <ion-select-option value="za">Which phone number do you remember most from your
+                        childhood?</ion-select-option>
+                      <ion-select-option value="za">What was your favorite place to visit as a
+                        child?</ion-select-option>
+                      <ion-select-option value="za">What is the name of your favorite pet?</ion-select-option>
+                      <ion-select-option value="za">In what city were you born?</ion-select-option>
+                      <ion-select-option value="za">What high school did you attend?</ion-select-option>
+                      <ion-select-option value="za">What is the name of your first school?</ion-select-option>
+                      <ion-select-option value="za">What is your favorite movie?</ion-select-option>
+                      <ion-select-option value="za">What is your mother's maiden name?</ion-select-option>
+                      <ion-select-option value="za">What street did you grow up on?</ion-select-option>
+                      <ion-select-option value="za">What was the make of your first car?</ion-select-option>
+                      <ion-select-option value="za">When is your anniversary?</ion-select-option>
+                      <ion-select-option value="za">What is your favorite color?</ion-select-option>
+                      <ion-select-option value="za">What is your father's middle name?</ion-select-option>
+                      <ion-select-option value="za">What is the name of your first grade teacher?</ion-select-option>
+                      <ion-select-option value="za">What was your high school mascot?</ion-select-option>
+                      <ion-select-option value="za">Which is your favorite web browser?</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Answer 1
+                    </ion-label>
+                    <ion-input formControlName="answer1" name="answer1" inputmode="text" type="text">
+                    </ion-input>
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Security Question 2
+                    </ion-label>
+                    <ion-select formControlName="question2">
+                      <ion-select-option value="jpn">What is the first and last name of your first boyfriend or
+                        girlfriend?</ion-select-option>
+                      <ion-select-option value="za">Which phone number do you remember most from your
+                        childhood?</ion-select-option>
+                      <ion-select-option value="za">What was your favorite place to visit as a
+                        child?</ion-select-option>
+                      <ion-select-option value="za">What is the name of your favorite pet?</ion-select-option>
+                      <ion-select-option value="za">In what city were you born?</ion-select-option>
+                      <ion-select-option value="za">What high school did you attend?</ion-select-option>
+                      <ion-select-option value="za">What is the name of your first school?</ion-select-option>
+                      <ion-select-option value="za">What is your favorite movie?</ion-select-option>
+                      <ion-select-option value="za">What is your mother's maiden name?</ion-select-option>
+                      <ion-select-option value="za">What street did you grow up on?</ion-select-option>
+                      <ion-select-option value="za">What was the make of your first car?</ion-select-option>
+                      <ion-select-option value="za">When is your anniversary?</ion-select-option>
+                      <ion-select-option value="za">What is your favorite color?</ion-select-option>
+                      <ion-select-option value="za">What is your father's middle name?</ion-select-option>
+                      <ion-select-option value="za">What is the name of your first grade teacher?</ion-select-option>
+                      <ion-select-option value="za">What was your high school mascot?</ion-select-option>
+                      <ion-select-option value="za">Which is your favorite web browser?</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <br>
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      Answer 2
+                    </ion-label>
+                    <ion-input formControlName="answer2" name="answer2" inputmode="text" type="text">
+                    </ion-input>
+                  </ion-item>
+                  <p class="body-text-color-alt text-par">In the event that you should lose your password, please select
+                    security
+                    questions
+                    that you will be asked to answer when requesting to change your password. Number of questions 2
+                  </p>
+                </ion-text>
+                <div class="button-container">
+                  <ion-button (click)="closeBlock('secQuestionsForm')" fill="outline" expand="block" color="tertiary"
+                    title="cancel">Cancel
+                  </ion-button>
+                  <ion-button expand="block" color="secondary" title="save">Save
+                  </ion-button>
+                </div>
+                <br>
+              </div>
+            </form>
+
+            <br>
+            <form [formGroup]="idForm">
+              <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.idForm}">
+                <ion-item class="edit-input-item input-style" lines="full">
+                  <ion-text class="input-label" position="floating">
+                    Identity Information
+                  </ion-text>
+                </ion-item>
+                <ion-icon class="" size="large" color="secondary"
+                  [name]="enableEditing.idForm ? 'create' : 'create-outline'" (click)="editControl('idForm')">
+                </ion-icon>
+              </div>
+              <div @fadeAnimation *ngIf="enableEditing.idForm"
+                class="input-block input-block-padding input-block-highlight">
+                <ion-text class="text-block">
+                  <ion-item class="input-style" lines="full">
+                    <ion-label class="input-label" position="floating">
+                      National Passport Number
+                    </ion-label>
+                    <ion-input formControlName="passportNumber" name="passportNumber" inputmode="numeric" type="number">
+                    </ion-input>
+                  </ion-item>
+                </ion-text>
+                <br>
+                <div class="button-container">
+                  <ion-button (click)="closeBlock('idForm')" fill="outline" expand="block" color="tertiary"
+                    title="cancel">Cancel
+                  </ion-button>
+                  <ion-button expand="block" color="secondary" title="save">Save
+                  </ion-button>
+                </div>
+                <br>
+              </div>
+            </form>
+
+            <br>
+            <div class="edit-input-block" [ngClass]="{'editing-background':enableEditing.termsAndCond}">
+              <ion-item class="edit-input-item input-style " lines="full">
+                <ion-text class="input-label" position="floating">
+                  Terms and Conditions
+                </ion-text>
+              </ion-item>
+              <ion-icon class="" size="large" color="secondary"
+                [name]="enableEditing.termsAndCond ? 'create' : 'create-outline'" (click)="editControl('termsAndCond')">
+              </ion-icon>
+            </div>
+            <div @fadeAnimation *ngIf="enableEditing.termsAndCond"
+              class="input-block input-block-padding input-block-highlight">
+              <ion-text class="text-block body-text-color-alt center-text text-par">
+                <p>VaultMarkets is a product of 1st Fintech Capital (Pty) Ltd, South Africa, with company number
+                  2020/936466/07, an authorised financial services provider, licensed and regulated by the Financial
+                  Sector Conduct Authority (FSCA) in South Africa, with FSP No. 51478.</p>
+                <p>VaultMarkets, a product of 1st Fintech Capital (Pty) Ltd is the platform that Clients use to trade
+                  derivatives that are issued by Karibu FX Financial Consultant Services Pty Ltd, a company established
+                  and operating from the Republic of Namibia, with company number 2019/0459 and registered address
+                  No.12-14 Haddy Street, Windhoek West, Windhoek, Namibia, the counterparty and principal to the
+                  contract
+                  for difference purchased by you (the Client).</p>
+                <p>In using the services, you agree to be bound by the client agreement which is entered into and
+                  binding
+                  between you (the Client) and Karibu FX Financial Consultant Services Pty Ltd.</p>
+                <p>This mobile app is operated by by VaultMarkets (Pty) Ltd.</p>
+                <a target="_blank"
+                  href="https://vaultmarkets.trade/wp-content/uploads/Vaultmarkets-Pty-Ltd_Bonus-Terms-and-Conditions_final_pdf.pdf">Bonus
+                  Terms & Conditions</a>
+              </ion-text>
+              <br>
+              <div class="button-container">
+                <ion-button (click)="closeBlock('termsAndCond')" fill="outline" expand="block" color="tertiary"
+                  title="cancel">Cancel
+                </ion-button>
+              </div>
+              <br>
+            </div>
+          </div>
+
+        </div>
+        <br>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,45 @@
+<div *ngIf="!isVerified" id="profile-completion">
+  <div class="heading center-text">
+    <ion-text class="body-text-color" size="large">
+      <h4>Profile Completion</h4>
+    </ion-text>
+  </div>
+
+  <div id="profile-checklist">
+    <ion-text class="body-text-color" size="large">
+      <div id="progress-bar">
+        <ion-badge color="secondary">{{percentage}}%</ion-badge>
+        <ion-progress-bar [value]="progress" color="secondary"></ion-progress-bar>
+      </div>
+
+      <div id="profile-items">
+        <p class="center-text">
+          <b>Your Profile Checklist:</b>
+        </p>
+        <div *ngFor="let item of progressItems; let i = index">
+          <hr *ngIf="i !== 0" class="hr-style">
+          <div id="progress-item">
+            <span>
+              {{i + 1}}. &nbsp;&nbsp; {{item.question}}
+            </span>
+            <span *ngIf="item.completed; else notCompleted">
+              <app-approved></app-approved>
+            </span>
+            <ng-template #notCompleted>
+              <app-declined></app-declined>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <ion-button (click)="profileCompletion()" expand="block" color="secondary" title="reset password">Complete your
+          Profile
+        </ion-button>
+      </div>
+      <p class="center-text">
+        <i>NOTE: Withdrawal functionality may be limited if this process is not completed.</i>
+      </p>
+    </ion-text>
+  </div>
+</div>

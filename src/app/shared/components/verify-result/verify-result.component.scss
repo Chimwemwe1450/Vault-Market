@@ -1,0 +1,91 @@
+@import '../../../../theme/variables.scss';
+
+.modal-header {
+  --background: var(--toolbar);
+}
+
+.modal-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  width: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.col-1,
+.col-2 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#content-block {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  min-height: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-block {
+  color: var(--body-text);
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.support-block {
+  color: var(--body-text);
+  display: block;
+  text-align: center;
+}
+
+.help-block {
+  color: var(--body-text);
+  display: block;
+  padding: 15px 15px 0;
+}
+
+.details-block {
+  padding: 15px;
+  background: var(--background-secondary);
+  border-radius: 4px;
+}
+
+ion-icon {
+  font-size: 8em;
+}
+
+::ng-deep app-approved,
+::ng-deep app-declined {
+  div {
+    svg {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+ion-button {
+  ion-icon {
+    font-size: var(--medium-font);
+  }
+}
+
+.footer-nav {
+  --background: var(--toolbar);
+}
+
+#footer {
+ padding: 5px;
+}
+
+.troubleshoot-list {
+  padding-inline-start: 15px;
+}

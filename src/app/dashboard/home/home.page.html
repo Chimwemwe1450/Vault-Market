@@ -1,0 +1,123 @@
+<ion-content [fullscreen]="true">
+  <div class="screen-container">
+    <br>
+    <div class="screen-padding">
+
+      <div class="">
+        <div class="input-block input-block-highlight input-block-padding">
+          <div class="wallet-heading">Wallet Balance</div>
+          <div class="wallet-balance">{{balance || '0.00'}} {{currency || '-'}}</div>
+        </div>
+
+        <div *ngIf="depositPrompt">
+          <ion-text class="body-text-color" id="deposit-prompt-text">Please ensure you have funds available in your
+            Wallet in order to continue trading.
+          </ion-text>
+          <div class="">
+            <br>
+            <ion-button fill="outline" color="secondary" title="deposit funds" routerLink="/dashboard/wallet"
+              [queryParams]="{section: 'deposit'}">Deposit Funds
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div id="tradingAccSelector" class="input-block input-block-highlight input-block-padding">
+        <app-select-trading-account></app-select-trading-account>
+      </div>
+    </div>
+
+    <div id="content-main">
+      <div class="body-top select-blocks-container">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              <div (click)="screenSelector('deposit')" class="select-blocks ion-activatable ripple-parent">
+                <div [ngClass]="{'select-blocks-active': screenSelection === 'deposit'}">
+                  <ion-icon name="add-circle-outline" size="large"></ion-icon><br>
+                  Deposit
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-col>
+            <ion-col size="3">
+              <div (click)="screenSelector('transfer')" class="select-blocks ion-activatable ripple-parent">
+                <div [ngClass]="{'select-blocks-active': screenSelection === 'transfer'}">
+                  <ion-icon name="cash-outline" size="large"></ion-icon><br>
+                  Transfer
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-col>
+            <ion-col size="3">
+              <div (click)="screenSelector('withdraw')" class="select-blocks ion-activatable ripple-parent">
+                <div [ngClass]="{'select-blocks-active': screenSelection === 'withdraw'}">
+                  <ion-icon name="download-outline" size="large"></ion-icon><br>
+                  Withdraw
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-col>
+            <ion-col size="3">
+              <div id="account-creation" class="select-blocks ion-activatable ripple-parent">
+                <div [ngClass]="{'select-blocks-active': screenSelection === 'ewallet'}">
+                  <ion-icon name="wallet-outline" size="large"></ion-icon><br>
+                  Create
+                </div>
+                <ion-ripple-effect></ion-ripple-effect>
+              </div>
+            </ion-col>
+          </ion-row>
+          <!-- Popover menu -->
+          <ion-popover trigger="account-creation" [dismissOnSelect]="true">
+            <ng-template>
+              <ion-content>
+                <ion-list>
+                  <ion-item class="list-items" [button]="true" [detail]="false" (click)="screenSelector('bankAccount')"
+                    lines="none">
+                    <ion-label>Bank Account</ion-label>
+                  </ion-item>
+                  <hr class="hr-style-blue">
+                  <ion-item class="list-items" [button]="true" [detail]="false" (click)="screenSelector('ewallet')"
+                    lines="none">
+                    <ion-label>eWallet</ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+          <!--  -->
+        </ion-grid>
+      </div>
+    </div>
+
+    <div class="screen-padding">
+      <ion-segment [value]="tab" (ionChange)="tabSelection($event)">
+        <ion-segment-button value="0">
+          <ion-label>Bank Accounts</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="1">
+          <ion-label>eWallets</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div>
+
+        <app-bank-accounts @tabSlideAnimation [data]="bankAccData" (createModal)="screenSelector('bankAccount')"
+          *ngIf="tab === 0">
+        </app-bank-accounts>
+        <app-ewallet-accounts @tabSlideAnimation [data]="walletData" (createModal)="screenSelector('ewallet')"
+          *ngIf="tab === 1">
+        </app-ewallet-accounts>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <app-fab-menu></app-fab-menu>
+  </ion-fab>
+
+</ion-content>

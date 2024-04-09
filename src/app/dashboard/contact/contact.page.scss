@@ -1,0 +1,69 @@
+@import '../../../theme/variables.scss';
+
+// .details-support-block {
+//   padding: 10px;
+// }
+
+// .details-block {
+//   padding: 15px;
+//   background: var(--background-secondary);
+//   border-radius: var(--radius-blocks);
+//   margin-bottom: 20px;
+// }
+
+.input-block {
+  padding-bottom: 15px;
+}
+
+.screen-padding {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.text-highlight {
+  color: var(--heading-text);
+}
+
+.contact-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-button {
+  min-width: 25%;
+}
+
+.block-margin {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.flag-title {
+  span, svg {
+    vertical-align: middle;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+
+.flag {
+  border-radius: var(--radius-blocks);
+}
+
+.title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: semibold;
+  color: var(--heading-text);
+  margin-top: -1px;
+}
+
+.heading {
+  font-size: 18px;
+}
+
+.content {
+  font-size: 12px;
+}
+

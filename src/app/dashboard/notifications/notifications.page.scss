@@ -1,0 +1,22 @@
+@import '../../../theme/variables.scss';
+
+.notifications-list {
+  padding: 10px;
+}
+
+.notification {
+  padding: 15px;
+  background: var(--background-secondary);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.text-highlight {
+  color: var(--heading-text);
+}
+
+.contact-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

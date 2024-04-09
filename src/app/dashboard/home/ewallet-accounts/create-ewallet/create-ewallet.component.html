@@ -1,0 +1,97 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="wallet-man-block">
+    <form [formGroup]="EwalletForm" (ngSubmit)="onSubmit()">
+      <h4 class="center-text highlight-text">eWallet</h4>
+      <br>
+      <div id="addEwallet">
+        <div class="input-block-padding">
+          <!-- Owner's name input -->
+          <ion-item lines="full" hidden>
+            <ion-label color="input-label" position="floating">eWallet Owner's Name</ion-label>
+            <ion-input formControlName="ownerName" type="text"></ion-input>
+          </ion-item>
+
+          <!-- eWallet type input -->
+
+
+          <!-- Wallet address input -->
+
+          <h4 class="center-text highlight-text">Billing Information</h4>
+          <br>
+
+          <!-- Email input -->
+          <ion-item class="input-style" lines="full" hidden>
+            <ion-label color="input-label" position="floating">Email</ion-label>
+            <ion-input formControlName="billingEmail" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">eWallet Type</ion-label>
+            <ion-select formControlName="ewalletType">
+              <ion-select-option value=1>Bitcoin</ion-select-option>
+              <ion-select-option value=2>Astropay</ion-select-option>
+              <ion-select-option value=3>Mpesa</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+                    <ion-item class="input-style" lines="full" >
+            <ion-label color="input-label" position="floating">Wallet Address</ion-label>
+            <ion-input formControlName="walletAddress" type="text"></ion-input>
+          </ion-item>
+
+          <!-- Address input -->
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">Address</ion-label>
+            <ion-input formControlName="billingAddress" type="text"></ion-input>
+          </ion-item>
+          <!-- eWallet type input -->
+
+       
+
+          <!-- City input -->
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">City</ion-label>
+            <ion-input formControlName="billingCity" type="text"></ion-input>
+          </ion-item>
+
+          <!-- Country select -->
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">Country</ion-label>
+            <app-country-select-list [displayValue]="selectedCountry.name" [value]="selectedCountry" [list]="countries"
+              (valueSelected)="countrySelected($event)"></app-country-select-list>
+          </ion-item>
+
+          <!-- Province input -->
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">State / Province</ion-label>
+            <ion-input formControlName="billingProvince" type="text"></ion-input>
+          </ion-item>
+
+          <!-- Zip code input -->
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">Zip / Post Code</ion-label>
+            <ion-input formControlName="billingZip" type="text"></ion-input>
+          </ion-item>
+
+          <!-- Country code input -->
+
+
+          <!-- Phone number input -->
+          <ion-item class="input-style" lines="full" hidden>
+            <ion-label color="input-label" position="floating">Phone</ion-label>
+            <ion-input formControlName="billingTel" type="text"></ion-input>
+          </ion-item>
+
+          <br>
+
+          <!-- Submit button -->
+          <div class="button-container">
+            <ion-button (click)="onSubmit()" color="secondary">Submit e wallet </ion-button>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <ion-button (click)="onTest()" color="secondary">Submit Test </ion-button> -->
+</ion-content>

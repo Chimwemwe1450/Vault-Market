@@ -1,0 +1,59 @@
+@import '../../../../theme/variables.scss';
+
+.v-align {
+  vertical-align: middle;
+}
+
+ion-icon {
+  font-size: var(--medium-font);
+}
+
+ion-badge {
+  padding: 5px 10px;
+  color: var(--ion-color-primary);
+}
+
+h4 {
+  color: var(--highlight);
+}
+
+#progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#progress-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: var(--highlight);
+}
+
+#profile-items {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#profile-completion {
+  border-radius: var(--radius-blocks);
+  padding: 20px;
+  background: var(--block-background);
+}
+
+::ng-deep app-approved,
+::ng-deep app-declined {
+  div {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+.center-text {
+  color: var(--background-tertiary);
+
+}

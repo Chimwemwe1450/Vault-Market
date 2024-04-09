@@ -1,0 +1,75 @@
+<ion-content>
+  <div id="login-container">
+    <div id="login-container-inner">
+      <div class="login-logo logo-image">
+      </div>
+
+      <br>
+      <!-- <div class="heading center-text">
+        <ion-text class="body-text-color" size="large">
+          <h4>Login</h4>
+        </ion-text>
+      </div> -->
+      <h3 class="center-text highlight-text">LOGIN</h3>
+
+      <br>
+
+      <form [formGroup]="loginForm">
+        <div id="login-block">
+          <div id="login-form" class="input-block input-block-padding input-block-highlight">
+            <br>
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && loginForm.controls['emailAddress'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Enter Email Address
+              </ion-label>
+              <ion-input name="emailAddress" formControlName="emailAddress" inputmode="text" type="text">
+              </ion-input>
+            </ion-item>
+            <br>
+            <ion-item class="input-style" lines="full"
+              [ngClass]="{'ion-invalid ion-touched':navigate && loginForm.controls['password'].invalid}">
+              <ion-label color="input-label" position="floating">
+                Enter Password
+              </ion-label>
+              <ion-input name="password" formControlName="password" type="password">
+              </ion-input>
+            </ion-item>
+            <br>
+            <br>
+            <div class="login-button-container">
+              <div>
+                <ion-item class="toggle-button-container" lines="none">
+                  <ion-label class="subheading">Remember me</ion-label>
+                  <ion-toggle color="input-label" class="toggle-button" [checked]="rememberMe"
+                    (ionChange)="rememberMeChange()"></ion-toggle>
+                </ion-item>
+              </div>
+
+              <div class="button-container-right">
+                <ion-button color="secondary" (click)="onSubmit()" title="Log In">Sign In
+                </ion-button>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="ripple-effect ion-activatable ripple-parent center-text login-links">
+            <ion-text color="secondary" (click)="passwordResetModal()">
+              Forgot Password?
+            </ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+          <div class="ripple-effect ion-activatable ripple-parent center-text login-links">
+            <ion-text color="secondary" routerLink="/auth/register">
+              Not Registered? Click here
+            </ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </div>
+      </form>
+     
+    </div>
+  </div>
+
+</ion-content>

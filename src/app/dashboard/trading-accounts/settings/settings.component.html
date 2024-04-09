@@ -1,0 +1,156 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="trading-acc-block">
+    <h4 class="center-text highlight-text">Account Settings</h4>
+    <div *ngIf="tradingAccounts?.length; else empty" class="trading-accounts-list">
+      <div *ngFor="let account of tradingAccounts; let i = index" class="trading-account-block">
+        <ion-text class="body-text-color grey-text">
+          <ion-grid>
+            <ion-row>
+              <ion-col style="display: flex; align-items:center; align-content: center;">
+                <ion-badge color="secondary">{{account.account_type_name}}</ion-badge>&nbsp;&nbsp;
+                <span>{{account.login}}</span>
+              </ion-col>
+            </ion-row>
+            <hr class="hr-style">
+            <ion-row>
+              <ion-col>
+                ID:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">{{account.account_id}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row class="odd-row">
+              <ion-col>
+                Type:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">{{account.account_type}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Currency:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">{{account.currency}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row class="odd-row">
+              <ion-col>
+                Balance:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">{{account.balance_formatted}} {{account.currency}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Free Margin:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">0.00</span>
+              </ion-col>
+            </ion-row>
+            <ion-row class="odd-row">
+              <ion-col>
+                Leverage:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">500</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Status:
+              </ion-col>
+              <ion-col>
+                <span class="text-highlight">Enabled</span>
+              </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+              <div class="button-container">
+                <ion-button (click)="showSettingsBlock(i, 'showLeverages')" expand="block" color="secondary"
+                  title="save">Edit Leverage
+                </ion-button>
+                <ion-button (click)="showSettingsBlock(i, 'showPasswordBlock')" expand="block" color="tertiary"
+                  title="save">Reset Password
+                </ion-button>
+              </div>
+            </ion-row>
+          </ion-grid>
+        </ion-text>
+
+        <ng-container *ngIf="showLeverages === i" id="change-leverage">
+          <br>
+          <h4 class="center-text drawer-heading">Change Leverage</h4>
+          <br>
+          <ion-item class="input-style" lines="full">
+            <ion-label color="input-label" position="floating">
+              Select Leverage
+            </ion-label>
+            <ion-select [(ngModel)]="selectedLeverage">
+              <ion-select-option *ngFor="let lev of leverages"
+                [value]="lev.leverage_id">{{lev.title}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <br>
+          <div class="button-container">
+            <ion-button (click)="onLeverageRequest(account.account_id)" expand="block" color="secondary"
+              title="change leverage">Change Leverage
+            </ion-button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="showPasswordBlock === i" id="change-password">
+          <br>
+          <form [formGroup]="newPasswordForm">
+            <h4 class="center-text drawer-heading">Change Password</h4>
+            <br>
+            <ion-item class="input-style" lines="full">
+              <ion-label color="input-label" position="floating">
+                Enter a new password
+              </ion-label>
+              <ion-input formControlName="password" name="password" type="password">
+              </ion-input>
+              <ion-text
+                *ngIf="newPasswordForm.controls['password'].touched && (newPasswordForm.controls['password'].invalid || newPasswordForm.controls['password'].errors)"
+                id="password-help" class="input-invalid">*password too weak, eg. X!2d65gD
+              </ion-text>
+            </ion-item>
+            <br>
+            <ion-item class="input-style" lines="full">
+              <ion-label color="input-label" position="floating">
+                Confirm new password
+              </ion-label>
+              <ion-input formControlName="confirmPassword" name="confirm new password" type="password">
+              </ion-input>
+            </ion-item>
+            <br>
+            <div class="button-container">
+              <ion-button (click)="onPasswordChange(account.account_id)" expand="block" color="secondary"
+                title="rest password">Reset Password
+              </ion-button>
+            </div>
+          </form>
+        </ng-container>
+      </div>
+    </div>
+    <ng-template #empty>
+      <div class="center-text">
+        <img src="../../../../assets/not-found.gif">
+        <ion-text class="drawer-body-text-color">
+          No accounts found
+          <br>
+          <br>
+          <ion-item class="small-button" id="open-account-button" lines="none" button
+            (click)="launchOpenAccountModal()">
+            <ion-label>Open Account</ion-label>
+            <ion-icon color="secondary" name="add-circle-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-text>
+      </div>
+    </ng-template>
+  </div>
+</ion-content>

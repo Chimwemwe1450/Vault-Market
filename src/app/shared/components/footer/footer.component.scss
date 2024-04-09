@@ -1,0 +1,35 @@
+#footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-nav {
+  --background: var(--toolbar);
+}
+
+.nav-item {
+  display: grid;
+  justify-items: center;
+  width: 13%;
+  ion-label {
+    font-size: x-small;
+    color: var(--ion-color-toolbar-icon);
+    padding-top: 1px;
+  }
+  ion-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.active-item {
+  ion-label {
+    color: var(--ion-color-secondary);
+  }
+}
+
+
+ion-menu-button {
+  font-size: var(--large-font);
+}

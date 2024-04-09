@@ -1,0 +1,25 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { RegisterPageRoutingModule } from './register-routing.module';
+import { CountrySelectListModule } from 'src/app/shared/components/country-select-list/country-select-list.module';
+
+import { RegisterPage } from './register.page';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IonicModule,
+    RegisterPageRoutingModule,
+    CountrySelectListModule
+  ],
+  declarations: [
+    RegisterPage
+  ]
+})
+export class RegisterPageModule {}

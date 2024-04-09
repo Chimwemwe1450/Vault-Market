@@ -1,0 +1,18 @@
+@import '../../../../theme/variables.scss';
+
+.body-main {
+  padding: 10px;
+}
+
+.advanced-search {
+  background: var(--drawer-background-1);
+  padding: 15px 15px 0;
+  border-radius: var(--radius-blocks);
+  margin-bottom: 10px;
+}
+
+.flex {
+  display: flex;
+
+}
+

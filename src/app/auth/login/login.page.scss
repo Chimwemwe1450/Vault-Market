@@ -1,0 +1,52 @@
+@import '../../../theme/variables.scss';
+
+#login-container {
+  height: 100%;
+  display: grid;
+  align-content: center;
+  background: var(--input-background);
+}
+
+.login-logo {
+  width: 180px;
+  margin: auto;
+  height: 100px;
+}
+
+#login-block {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.login-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-button-container {
+  // --background: var(--ion-color-primary);
+  // REMOVE BACKGROUND //
+  --background: none;
+  --color: var(--body-text);
+}
+
+.toggle-button {
+  --background-checked: #3a2804;
+  --handle-background: var(--body-text);
+  --handle-background-checked: var(--ion-color-secondary);
+}
+
+.login-links {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--ion-color-secondary);
+  font-size: var(--small-font);
+}
+
+.subheading {
+  color: var(--background-tertiary);
+}
+
+.input-style {
+  margin-bottom: 0;
+}

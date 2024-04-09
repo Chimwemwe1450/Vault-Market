@@ -1,0 +1,35 @@
+@import '../../../../theme/variables.scss';
+
+.content-block {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: var(--small-font);
+}
+
+.content-block:not(:first-child) {
+  padding-top: 5px;
+  margin-top: 15px;
+}
+
+#date-col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#date {
+  text-transform: uppercase;
+}
+
+.odd-row {
+  background: var(--color-four);
+}
+
+.text-highlight {
+  color: var(--highlight);
+}
+
+#open-account-button {
+  margin: auto;
+}

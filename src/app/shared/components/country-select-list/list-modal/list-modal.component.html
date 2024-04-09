@@ -1,0 +1,42 @@
+<ion-content id="select-list">
+  <div id="header-container">
+    <ion-list-header id="header" lines="full">
+      <ion-label>Select Country</ion-label>
+    </ion-list-header>
+    <ion-item id="search-bar" lines="full">
+      <ion-searchbar
+        (ionChange)="onSearch($event)"
+        debounce="500">
+      </ion-searchbar>
+    </ion-item>
+  </div>
+  <ion-list>
+    <ion-radio-group
+      (ionChange)="inputChange($event)"
+      [value]="initValue">
+      <ion-item *ngFor="let item of data">
+        <ion-label>{{item.name}}</ion-label>
+        <ion-radio slot="start" [value]="item"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-item *ngIf="!data?.length" lines="none">
+      <ion-text>No options available</ion-text>
+    </ion-item>
+  </ion-list>
+  <div class="modal-button-container">
+    <div class="button-container-modal">
+      <ion-button
+        fill="none"
+        color="secondary"
+        (click)="onCancel()"
+        title="Cancel">Cancel
+      </ion-button>
+      <ion-button
+        fill="none"
+        color="secondary"
+        (click)="onAccept()"
+        title="Ok">Ok
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

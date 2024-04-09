@@ -1,0 +1,122 @@
+<ion-content>
+  <div class="screen-padding">
+    <br>
+    <ion-card class="input-block input-block-padding input-block-highlight title shadow-none m-b">
+      <p class="heading"><span class="bold text-secondary">About</span><span class="bold"> Us</span>
+      </p>
+      <p class="content">Welcome to the Vault Markets Hub. Our team is made up of experienced and passionate
+        International
+        traders from within the Forex industry. Strategically combining their expertise, they focus on developing and
+        empowering African Forex markets to compete at a global scale. <br> We’ve got over 40 years of combined
+        experience in
+        our Vault, which we are sharing with our valued Brokers and clients, to support their success and the prosperity
+        of Africa as a whole.</p>
+    </ion-card>
+
+    <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+ 
+      <h5 class="heading-text center-text">AML Policy</h5>
+
+      <div class="pdf-container">
+        <ngx-extended-pdf-viewer *ngIf="pdfData.name1.status" [src]="pdfData.name1.url" height="600px"
+          [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+      </div>
+
+      <ion-card-content class="ion-text-center">
+        <ion-button class="watch-button" (click)="setStatusToTrue('name1')">View</ion-button>
+        <ion-button class="watch-button" (click)="setStatusToFalse('name1')">Close</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+
+      <h5 class="heading-text center-text">Client
+        Agreement</h5>
+
+      <ngx-extended-pdf-viewer *ngIf="pdfData.name2.status" [src]="pdfData.name2.url" height="600px"
+        [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+
+      <ion-card-content class="ion-text-center">
+        <ion-button class="watch-button" (click)="setStatusToTrue('name2')">View </ion-button>
+        <ion-button class="watch-button" (click)="setStatusToFalse('name2')">Close </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+
+      <h5 class="heading-text center-text">Complaints
+        Policy</h5>
+
+      <ngx-extended-pdf-viewer *ngIf="pdfData.name3.status" [src]="pdfData.name3.url" height="600px"
+        [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+
+      <ion-card-content class="ion-text-center">
+        <ion-button class="watch-button" (click)="setStatusToTrue('name3')">View</ion-button>
+        <ion-button class="watch-button" (click)="setStatusToFalse('name3')">Close</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+   
+      <h5 class="heading-text center-text">Privacy
+        Policy</h5>
+
+      <ngx-extended-pdf-viewer *ngIf="pdfData.name4.status" [src]="pdfData.name4.url" height="600px"
+        [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+
+      <ion-card-content class="ion-text-center">
+        <ion-button class="watch-button" (click)="setStatusToTrue('name4')">View</ion-button>
+        <ion-button class="watch-button" (click)="setStatusToFalse('name4')">Close</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+   
+      <h5 class="heading-text center-text">Risk
+        Disclosure</h5>
+
+      <ngx-extended-pdf-viewer *ngIf="pdfData.name5.status" [src]="pdfData.name5.url" height="600px"
+        [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+
+      <ion-card-content class="ion-text-center">
+        <ion-button class="watch-button" (click)="setStatusToTrue('name5')">View</ion-button>
+        <ion-button class="watch-button" (click)="setStatusToFalse('name5')">Close</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="input-block input-block-padding input-block-highlight shadow-none m-b">
+   
+      <h5 class="heading-text center-text">Website
+        Disclaimers</h5>
+
+      <ngx-extended-pdf-viewer *ngIf="pdfData.name6.status" [src]="'pdfData.name6.url'" height="600px"
+        [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+
+      <ion-card-content class="ion-text-center">
+        <ion-button class="watch-button" (click)="setStatusToTrue('name6')">View</ion-button>
+        <ion-button class="watch-button" (click)="setStatusToFalse('name6')">Close</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+  
+    <ion-card class="input-block input-block-padding input-block-highlight title title-card shadow-none">
+      <p class="heading"><span class="bold text-secondary">Risk</span><span class="bold"> Warning</span>
+      </p>
+      <p class="content">VaultMarkets is a product of 1st Fintech Capital (Pty) Ltd, South Africa,
+        with company number 2020/936466/07, an authorised financial services provider,
+        licensed and regulated by the Financial Sector Conduct Authority (FSCA) in
+        South Africa, with FSP No. 51478. VaultMarkets, a product of 1st Fintech Capital (Pty) Ltd
+        is the platform that Clients use to trade derivatives that are issued by
+        Karibu FX Financial Consultant Services Pty Ltd, a company established and operating
+        from the Republic of Namibia, with company number 2019/0459 and registered
+        address No.12-14 Haddy Street, Windhoek West, Windhoek, Namibia, the counterparty
+        and principal to the contract for difference purchased by you (the Client).
+        In using the services, you agree to be bound by the client agreement which is entered
+        into and binding between you (the Client) and Karibu FX Financial Consultant Services Pty Ltd.
+        This website is operated by VaultMarkets (Pty) Ltd..</p>
+    </ion-card>
+
+
+  </div>
+  
+</ion-content>

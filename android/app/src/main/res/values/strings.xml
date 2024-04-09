@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Vault Markets</string>
+    <string name="title_activity_main">Vault Markets</string>
+    <string name="package_name">com.vault.markets</string>
+    <string name="custom_url_scheme">com.vault.markets</string>
+    <string name="freshchat_file_provider_authority">com.vault.markets.fileprovider</string>
+</resources>

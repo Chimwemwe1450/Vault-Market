@@ -1,0 +1,76 @@
+<div class="top-section">
+  <ion-grid class="trading-grid">
+    <ion-row>
+      <ion-col size="6">
+        <div (click)="launchOpenAccountModal()" class="select-blocks ion-activatable ripple-parent">
+          <div>
+            <ion-icon name="create-outline" size="small"></ion-icon><br>
+            Open Account
+          </div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div (click)="launchSettingsModal()" class="select-blocks ion-activatable ripple-parent">
+          <div>
+            <ion-icon name="settings-outline" size="small"></ion-icon><br>
+            Settings
+          </div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <div class="selection-list">
+    <ng-container *ngIf="tradingAccounts.length; else noAccounts">
+      <div *ngFor="let selectedAccount of tradingAccounts" class="account-item">
+        <div class="account-info-text input-block input-block-highlight input-block-padding">
+          <div class="account-name text-tertiary"><ion-badge class="badge"
+              color="secondary">{{selectedAccount.account_type_title ||
+              '-'}}</ion-badge>
+            &nbsp;
+            <span class="text-tertiary">{{selectedAccount.login}}</span>
+            &nbsp;
+            <ion-badge class="badge" color="tertiary">{{selectedAccount.account_type || '-'}}</ion-badge>
+          </div>
+          <div class="account-balance highlight-text">
+            <p id="balance-text">{{selectedAccount.balance_formatted || '0.00'}} {{selectedAccount.currency || '-'}}</p>
+            <div class="small-button" id="transfer-button" lines="none" button
+              (click)="launchTransferModal(selectedAccount)">
+              <ion-label class="label">Transfer</ion-label>
+              <ion-icon color="secondary" name="chevron-forward-circle-outline" slot="end"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <br>
+    </ng-container>
+
+    <ng-template #noAccounts>
+      <ion-select placeholder="- no accounts -" interface="action-sheet" [interfaceOptions]="customActionSheetOptions">
+      </ion-select>
+    </ng-template>
+  </div>
+
+
+
+</div>
+
+<!-- <ion-item class="small-button" id="open-account-button" lines="none" button (click)="launchOpenAccountModal()">
+  <ion-label>Open Account</ion-label>
+  <ion-icon color="secondary" name="add-circle-outline" slot="end"></ion-icon>
+</ion-item> -->
+
+<!-- <ion-icon (click)="launchSettingsModal()" color="secondary" name="settings-outline">
+</ion-icon> -->
+
+<!-- <div class="transfer-button-container">
+  <ion-item class="small-button" id="transfer-button" lines="none" button (click)="launchTransferModal()">
+    <ion-label>Transfer</ion-label>
+    <ion-icon color="secondary" name="chevron-forward-circle-outline" slot="end"></ion-icon>
+  </ion-item>
+</div> -->

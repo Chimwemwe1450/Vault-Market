@@ -1,0 +1,24 @@
+<ion-content>
+  <br>
+  <ion-card class="input-block input-block-padding input-block-highlight title title-card shadow-none">
+    <p class="heading"><span class="bold">Learn</span> about the <span class="bold text-secondary"> Forex basics</span>
+    </p>
+    <p class="content">New to Forex? We have the basic terminology below for you to get started quickly and easily.</p>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row *ngFor="let terminology of terminologies">
+
+      <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+        <!-- <img class="webinar-image" [src]="terminology.imageUrl"> -->
+        <p class="body-text-color grey-text title">{{terminology.title}}</p>
+        <video width="100%" height="auto" controls [poster]="terminology.imageUrl">
+          <source [src]="terminology.videoUrl" type="video/mp4">
+        </video>
+        <!-- <ion-card-content class="ion-text-center">
+          <ion-button class="watch-button" [href]="terminology.videoUrl" color="black">Watch Video</ion-button>
+        </ion-card-content> -->
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-content>
+  <div class="screen-container">
+    <br>
+
+    <div class="screen-padding">
+      <ion-tabs>
+        <ion-tab-bar slot="top">
+          <ion-tab-button tab="tab1">
+            <ion-label>Complete Profile</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="tab2">
+            <ion-label>Edit Details</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+
+      <!-- <div class="heading center-text">
+      <ion-text class="body-text-color" size="large">
+        <h4>Manage Documents</h4>
+        <b>Get verified!</b>
+        <p>You are 3 easy steps away from being Verified, please provide the below documentation.</p>
+        <i>NOTE: Withdrawal functionality may be limited if this process is not completed.</i>
+      </ion-text>
+    </div>
+
+    <div class="manage-documents">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <div class="select-blocks ion-activatable ripple-parent fileUpload">
+              <div>
+                <ion-icon *ngIf="filesToUpload.idDoc" name="checkmark-circle-outline" size="large" color="success"></ion-icon>
+                <ion-icon *ngIf="!filesToUpload.idDoc" name="add-circle-outline" size="large"></ion-icon><br>
+                Proof of ID
+                <ion-input id="fileUpload"
+                           class="upload"
+                           type="file"
+                           (change)="onUpload($event, 'idDoc')">
+                </ion-input>
+              </div>
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div class="select-blocks ion-activatable ripple-parent fileUpload">
+              <div>
+                <ion-icon *ngIf="filesToUpload.residenceDoc" name="checkmark-circle-outline" size="large" color="success"></ion-icon>
+                <ion-icon *ngIf="!filesToUpload.residenceDoc" name="add-circle-outline" size="large"></ion-icon><br>
+                Proof of Residence
+                <ion-input id="fileUpload"
+                           class="upload"
+                           type="file"
+                           (change)="onUpload($event, 'residenceDoc')">
+                </ion-input>
+              </div>
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div class="select-blocks ion-activatable ripple-parent fileUpload">
+              <div>
+                <ion-icon *ngIf="filesToUpload.verifyDoc" name="checkmark-circle-outline" size="large" color="success"></ion-icon>
+                <ion-icon *ngIf="!filesToUpload.verifyDoc" name="add-circle-outline" size="large"></ion-icon><br>
+                Document Verification
+                <ion-input id="fileUpload"
+                           class="upload"
+                           type="file"
+                           (change)="onUpload($event, 'verifyDoc')">
+                </ion-input>
+              </div>
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div> -->
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <app-fab-menu></app-fab-menu>
+  </ion-fab>
+
+</ion-content>

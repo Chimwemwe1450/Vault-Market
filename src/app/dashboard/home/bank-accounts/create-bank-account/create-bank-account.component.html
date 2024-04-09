@@ -1,0 +1,111 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="wallet-man-block">
+    <form [formGroup]="bankAccountForm">
+      <h4 class="center-text highlight-text">Create Bank Account</h4>
+      <br>
+      <!-- Include other form fields as needed -->
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating"> First Name</ion-label>
+        <ion-input formControlName="beneficiaryFname" type="text">Default value </ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input formControlName="beneficiaryLname" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input formControlName="address" type="text"></ion-input>
+      </ion-item>
+
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Province</ion-label>
+        <ion-input formControlName="province" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Zip Code</ion-label>
+        <ion-input formControlName="zipCode" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Account Name</ion-label>
+        <ion-input formControlName="bankName" type="text"></ion-input>
+      </ion-item>
+
+      
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Bank Address</ion-label>
+        <ion-input formControlName="bankAddress" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Bank Country</ion-label>
+        <app-country-select-list [value]="selectedCountry" [displayValue]="selectedCountry.name" [list]="countries"
+          (valueSelected)="countrySelected($event)"></app-country-select-list>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Bank Province</ion-label>
+        <ion-input formControlName="bankProvince" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" hidden>
+        <ion-label position="floating">Bank Zip Code</ion-label>
+        <ion-input formControlName="bankZipCode" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style">
+        <ion-label position="floating"> Account Number</ion-label>
+        <ion-input formControlName="bankAccountNo" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" lines="full" >
+        <ion-label color="input-label" position="floating">Country</ion-label>
+        <app-country-select-list [displayValue]="selectedCountry.name" [value]="selectedCountry" [list]="countries"
+          (valueSelected)="countrySelected($event)"></app-country-select-list>
+        </ion-item>
+
+        <ion-item class="input-style" >
+          <ion-label position="floating">Name of your bank </ion-label>
+          <ion-input formControlName="bankName" type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item class="input-style" *ngIf="!isSouthAfricaSelected">
+          <ion-label position="floating">Swift Code</ion-label>
+          <ion-input formControlName="swiftCode" type="text"></ion-input>
+        </ion-item>
+
+      <ion-item class="input-style" hidden >
+        <ion-label position="floating">Bank Branch</ion-label>
+        <ion-input formControlName="bankBranch" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style">
+        <ion-label position="floating">Currency</ion-label>
+        <ion-input formControlName="currencyId" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-style" *ngIf="isSouthAfricaSelected && isAbsaSelected && isAbsaSelected1 && isFnbSelected && isCapitecSelected && isInvestecSelected && isNedbankSelected && isTymeBankSelected && isStandardBankSelected ">
+        <ion-label position="floating">Bank Branch Code</ion-label>
+        <ion-input formControlName="bankBranchCode" type="text" readonly></ion-input>
+      </ion-item>
+      
+      <!-- If South Africa is not selected or Absa is not selected -->
+      <ion-item class="input-style" *ngIf="!isSouthAfricaSelected || !isAbsaSelected || !isAbsaSelected1 || isFnbSelected ||isCapitecSelected  || isInvestecSelected || isNedbankSelected  || isTymeBankSelected || isStandardBankSelected ">
+        <ion-label position="floating">Bank Branch Code</ion-label>
+        <ion-input formControlName="bankBranchCode" type="text"></ion-input>
+      </ion-item>
+      <br>
+
+      <div class="button-container">
+        <ion-button (click)="onSubmit()" color="secondary">Submit</ion-button>
+      </div>
+
+    </form>
+  </div>
+
+</ion-content>

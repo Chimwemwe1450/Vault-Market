@@ -1,0 +1,34 @@
+@import '../../../../theme/variables.scss';
+
+.trading-acc-block {
+  padding: 10px;
+}
+
+.trading-account-block {
+  padding: 15px;
+  // background: var(--drawer-background-1);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.trading-account-block {
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--drawer-background-1);
+}
+
+.trading-account-block:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.text-highlight {
+  color: var(--highlight)
+}
+
+.odd-row {
+  background: var(--color-four);
+}
+
+#open-account-button {
+  margin: auto;
+}

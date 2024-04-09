@@ -1,0 +1,133 @@
+@import '../../../../theme/variables.scss';
+
+ion-select {
+  color: var(--heading-text);
+  --padding-start: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+.badge {
+  font-size: var(--small-font);
+  font-family: 'Tauri';
+  font-weight: 100;
+  align-self: center;
+
+}
+
+#account-info {
+  margin-top: 5px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+
+}
+.custom-popover ion-select-popover ion-item {
+  --background: #000000;
+  --color: #4550f5;
+  --inner-border-width: 0;
+}
+
+.custom-popover ion-select-popover ion-radio {
+  --color: #a61134;
+  --color-checked: #4550f5;
+}
+
+#transfer-button-container {
+  display: flex;
+  justify-content: flex-end;
+  justify-self: flex-end;
+}
+
+#transfer-button,
+#open-account-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+#top-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#selection-list {
+  width: 50%;
+  display: flex;
+}
+
+#selection-heading {
+  border-radius: 7px;
+    background: var(--input-background);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+ #settings-button {
+  padding-right: 10px;
+  align-self: center;
+
+ }
+
+#account-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.selection-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: var(--color-four);
+  padding: 5px;
+}
+
+.account-info-text {
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+}
+
+.account-name {
+  font-size: 18px;
+  // margin-right: 10px;
+  display: flex;
+}
+
+.account-balance {
+  display: flex;
+
+}
+
+.transfer-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select-blocks {
+  color: var(--highlight);
+}
+.custom-option {
+  /* Your custom styling here */
+  color: white; /* Example color */
+  background-color: yellow; /* Example background color */
+}
+
+
+

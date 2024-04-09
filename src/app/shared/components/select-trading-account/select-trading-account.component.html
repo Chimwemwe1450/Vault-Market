@@ -1,0 +1,46 @@
+
+<div id="top-section">
+  <div id="selection-list">
+    <ion-select *ngIf="tradingAccounts.length, else noAccounts" [interfaceOptions]="customActionSheetOptions"
+      placeholder="- select account -" [(ngModel)]="selectedAccount" (ionChange)="accountSelection()"
+      interface="action-sheet" id="selection-heading" interface="popover">
+      <ion-select-option 
+      *ngFor="let acc of tradingAccounts" 
+      [value]="acc"
+      class="custom-option" >
+ 
+      {{acc.account_type_name}} {{acc.login}}
+
+    </ion-select-option>
+    </ion-select>
+
+    <ng-template #noAccounts>
+      <ion-select placeholder="- no accounts -" interface="action-sheet" [interfaceOptions]="customActionSheetOptions">
+      </ion-select>
+    </ng-template>
+  </div>
+  <ion-item class="small-button" id="open-account-button" lines="none" button (click)="launchOpenAccountModal()">
+    <ion-label>Open Account</ion-label>
+    <ion-icon color="secondary" name="add-circle-outline" slot="end"></ion-icon>
+  </ion-item>
+</div>
+
+<div id="account-info">
+  <div>
+    <ion-icon id="settings-button" (click)="launchSettingsModal()" color="secondary" name="settings-outline">
+    </ion-icon>
+    <ion-text class="highlight-text">
+      {{selectedAccount?.balance_formatted || '0.00'}} {{selectedAccount?.currency || '-'}}
+    </ion-text>
+    &nbsp;
+    <ion-badge class="badge" color="secondary">{{selectedAccount?.account_type_title || '-'}}</ion-badge>
+    &nbsp;
+    <ion-badge class="badge" color="tertiary">{{selectedAccount?.account_type || '-'}}</ion-badge>
+  </div>
+  <div id="transfer-button-container">
+    <ion-item class="small-button" id="transfer-button" lines="none" button (click)="launchTransferModal()">
+      <ion-label>Transfer</ion-label>
+      <ion-icon color="secondary" name="chevron-forward-circle-outline" slot="end"></ion-icon>
+    </ion-item>
+  </div>
+</div>

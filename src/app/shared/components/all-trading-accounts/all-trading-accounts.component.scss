@@ -1,0 +1,110 @@
+@import '../../../../theme/variables.scss';
+
+ion-select {
+  color: var(--heading-text);
+  --padding-start: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+.badge {
+  font-size: var(--small-font);
+  font-family: 'Tauri';
+  font-weight: 100;
+}
+
+#account-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  // border-bottom: 1px solid #ccc;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-blocks {
+  height: 60px;
+}
+
+.selection-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.account-info-text {
+  width: 100%;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+}
+
+.account-name {
+  font-size: 18px;
+  // margin-right: 10px;
+  display: flex;
+}
+
+.account-balance {
+  display: flex;
+
+}
+
+.transfer-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select-blocks {
+  color: var(--highlight);
+  width: 100%;
+}
+
+.trading-grid {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.small-button ion-icon {
+  vertical-align: middle;
+}
+
+#transfer-button {
+  justify-self: center;
+  vertical-align: middle;
+  align-self: flex-end;
+  width: 50%;
+  text-align: right;
+}
+
+#balance-text {
+  justify-self: center;
+  vertical-align: middle;
+  margin: 10px 10px 0px 0px;
+  width: 50%;
+  text-align: left;
+}
+
+.label {
+  vertical-align: middle;
+
+}
+
+.input-block-padding {
+  padding: 10px;
+}

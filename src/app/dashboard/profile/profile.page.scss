@@ -1,0 +1,119 @@
+
+@import '../../../theme/variables.scss';
+
+.screen-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.avatar-container {
+  text-align: center;
+  color: #fff;
+  background: var(--background-secondary);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#upload-icon {
+  position: relative;
+}
+
+input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+#profile-pic {
+  width: 100%;
+  height: 100%;
+}
+
+.accordion-items {
+  --background: var(--background-secondary);
+  color: var(--heading-text);
+  --border-width: 0;
+}
+
+.input-label {
+  color: var(--background-tertiary);
+}
+
+.ion-input {
+  color: var(--color-four);
+}
+
+.input-expand-block {
+  background: var(--ion-color-primary);
+  color: var(--header);
+  border-radius: 0 0 10px 10px;
+}
+
+.editing-background {
+  border-radius: 3px 3px 0 0;
+}
+
+ion-accordion {
+  background: none;
+}
+
+#profile-summary {
+  color: var(--ion-color-secondary);
+  margin-left: 5px;
+}
+
+#acc-number {
+  margin-top: 10px;
+}
+
+.text-block {
+  display: block;
+  padding: 15px 20px;
+}
+
+#upload-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+}
+
+.fileUpload ion-input.upload {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+//--//
+
+.edit-input-item {
+  padding-right: 20px;
+}
+
+ion-tab-bar {
+  background: var(--global-background);
+    border: none;
+}
+
+
+
+

@@ -1,0 +1,15 @@
+<div class="risk-assess-padding input-block-highlight input-block input-block-highlight">
+  <h1>Risk Assessment</h1>
+  <ion-text class="body-text-color">
+    <p class="subheading">Provided that you are employed, which Industry do you work in?</p>
+  </ion-text>
+  <ion-item fill="outline">
+    <ion-label color="input-label" position="floating">
+      select here...
+    </ion-label>
+    <ion-select [(ngModel)]="industry" (ionChange)="inputChanged()" interface="popover">
+      <ion-select-option *ngFor="let industry of industries" [value]="industry">{{industry}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>901457263265-c4s6e6ug8i8ctff2qlka9b5chhl4aamm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.901457263265-c4s6e6ug8i8ctff2qlka9b5chhl4aamm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBFmpfl5cvTWF69dVE4Ux0iFJGX7rxNkEY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>901457263265</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.vault.markets</string>
+	<key>PROJECT_ID</key>
+	<string>vaultmarketsmobileapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vaultmarketsmobileapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:901457263265:ios:8440ad577dc80e0ad28ee0</string>
+</dict>
+</plist>

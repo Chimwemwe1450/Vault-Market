@@ -1,0 +1,25 @@
+<ion-content>
+  <br>
+  <ion-card class="input-block input-block-padding input-block-highlight title shadow-none title-card">
+    <p class="heading"><span class="bold">Read</span> our blogs to support your <span class="bold text-secondary">
+        Trading journey</span>
+    </p>
+    <p class="content">We’re here to support your trading journey, take time to go through our informative blog articles
+      below.</p>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row *ngFor="let blog of blogs">
+
+      <ion-card class="input-block input-block-padding input-block-highlight shadow-none">
+
+        <p class="body-text-color grey-text title">{{blog.title}}</p>
+        <img class="webinar-image" [src]="blog.imageUrl">
+  
+        <ion-card-content class="ion-text-center">
+          <ion-button class="watch-button" [href]="blog.blogUrl" color="black">Read Blog</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

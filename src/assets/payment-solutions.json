@@ -1,0 +1,168 @@
+{
+  "Botswana": [
+    {
+      "name": "Ticopesa",
+      "image": "icons/psp-logo/tigopesa.png"
+    },
+    {
+      "name": "Mpesa",
+      "image": "icons/psp-logo/mpesa.png"
+    },
+    {
+      "name": "Airtel",
+      "image": "icons/psp-logo/airtel.png"
+    },
+    {
+      "name": "Alphapo",
+      "image": "icons/psp-logo/alphapo.png"
+    },
+    {
+      "name": "Wire-transfer",
+      "image": "icons/psp-logo/wire-transfer.png"
+    },
+    {
+      "name": "Mastercard",
+      "image": "icons/psp-logo/mastercard-dark.png"
+    },
+    {
+      "name": "Visa",
+      "image": "icons/psp-logo/visa.png"
+    },
+    {
+      "name": "Paxful",
+      "image": "icons/psp-logo/Paxful_Logo_Black.png"
+    }
+  ],
+  "Namibia": [
+    {
+      "name": "Mpesa",
+      "image": "icons/psp-logo/mpesa.png"
+    },
+    {
+      "name": "Ticopesa",
+      "image": "icons/psp-logo/tigopesa.png"
+    },
+    {
+      "name": "Airtel",
+      "image": "icons/psp-logo/airtel.png"
+    },
+    {
+      "name": "Alphapo",
+      "image": "icons/psp-logo/alphapo.png"
+    },
+    {
+      "name": "Wire-transfer",
+      "image": "icons/psp-logo/wire-transfer.png"
+    },
+    {
+      "name": "Mastercard",
+      "image": "icons/psp-logo/mastercard-dark.png"
+    },
+    {
+      "name": "Visa",
+      "image": "icons/psp-logo/visa.png"
+    },
+    {
+      "name": "Paxful",
+      "image": "icons/psp-logo/Paxful_Logo_Black.png"
+    }
+  ],
+  "Nigeria": [
+    {
+      "name": "Ticopesa",
+      "image": "icons/psp-logo/tigopesa.png"
+    },
+    {
+      "name": "Mpesa",
+      "image": "icons/psp-logo/mpesa.png"
+    },
+    {
+      "name": "Airtel",
+      "image": "icons/psp-logo/airtel.png"
+    },
+    {
+      "name": "Alphapo",
+      "image": "icons/psp-logo/alphapo.png"
+    },
+    {
+      "name": "Mastercard",
+      "image": "icons/psp-logo/mastercard-dark.png"
+    },
+    {
+      "name": "Visa",
+      "image": "icons/psp-logo/visa.png"
+    },
+    {
+      "name": "Paxful",
+      "image": "icons/psp-logo/Paxful_Logo_Black.png"
+    },
+    {
+      "name": "Wire-transfer",
+      "image": "icons/psp-logo/wire-transfer.png"
+    }
+  ],
+  "South Africa": [
+    {
+      "name": "Ozow",
+      "image": "icons/psp-logo/Ozow-Logo-black.png"
+    },
+    {
+      "name": "Mastercard",
+      "image": "icons/psp-logo/mastercard-dark.png"
+    },
+    {
+      "name": "Visa",
+      "image": "icons/psp-logo/visa.png"
+    },
+    {
+      "name": "Payfast",
+      "image": "icons/psp-logo/payfast-dark.png"
+    },
+    {
+      "name": "Paymaxis",
+      "image": "icons/psp-logo/Paymaxis.png"
+    },
+    {
+      "name": "Paxful",
+      "image": "icons/psp-logo/Paxful_Logo_Black.png"
+    },
+    {
+      "name": "Zotapay",
+      "image": "icons/psp-logo/zotapay_black.png"
+    },
+    {
+      "name": "Praxis",
+      "image": "icons/psp-logo/Praxis.png"
+    }
+  ],
+  "Tanzania": [
+    {
+      "name": "Ticopesa",
+      "image": "icons/psp-logo/tigopesa.png"
+    },
+    {
+      "name": "Mpesa",
+      "image": "icons/psp-logo/mpesa.png"
+    },
+    {
+      "name": "Airtel",
+      "image": "icons/psp-logo/airtel.png"
+    },
+    {
+      "name": "Zotapay",
+      "image": "icons/psp-logo/zotapay_black.png"
+    },
+    {
+      "name": "Mastercard",
+      "image": "icons/psp-logo/mastercard-dark.png"
+    },
+    {
+      "name": "Visa",
+      "image": "icons/psp-logo/visa.png"
+    },
+    {
+      "name": "Paxful",
+      "image": "icons/psp-logo/Paxful_Logo_Black.png"
+    }
+  ]
+}

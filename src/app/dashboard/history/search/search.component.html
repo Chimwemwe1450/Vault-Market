@@ -1,0 +1,32 @@
+<ion-content class="drawer-modal-content">
+  <div #modal class="body-main">
+    <form [formGroup]="transHistoryForm">
+      <h5 class="center-text highlight-text"> Search </h5>
+
+      <div class="input-block-padding">
+        <ion-item class="input-style" lines="full">
+          <ion-label color="input-label" position="floating">
+            From
+          </ion-label>
+          <ion-input formControlName="from" placeholder="" name="from" type="date">
+          </ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="input-style" lines="full">
+          <ion-label color="input-label" position="floating">
+            To
+          </ion-label>
+          <ion-input formControlName="to" placeholder="" name="to" type="date">
+          </ion-input>
+        </ion-item>
+      </div>
+      <br>
+      <div class="button-container">
+        <ion-button (click)="onSearch()" color="secondary" [disabled]="disableSearch">
+          Search
+        </ion-button>
+      </div>
+      <br>
+    </form>
+  </div>
+</ion-content>

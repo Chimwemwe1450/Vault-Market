@@ -1,0 +1,10 @@
+<div class="risk-assess-padding input-block-highlight input-block input-block-highlight">
+  <h1>Risk Assessment</h1>
+  <ion-text class="body-text-color">
+    <p class="subheading">Name the country from where your income tax is paid from?</p>
+  </ion-text>
+  <app-search-select-list class="select-dropdown input-block-highlight input-block input-block-highlight"
+    placeholder="select here..." header="Select Country" [value]="nationality" [list]="countries"
+    (valueSelected)="inputChanged($event)">
+  </app-search-select-list>
+</div>
