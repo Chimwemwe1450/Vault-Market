@@ -55,20 +55,20 @@ export class MainService extends GenericService {
 
   private apiUrl =
     'https://yourendpoint.com/gateway/api/5/syntellicore.cfc?method=create_ewallet';
-  private apiKey = 'f0933a23-744e-49f5-be8b-12c29b19d5dd';
+  private apiKey = '';
 
   private payfastApiUrl = 'https://www.payfast.co.za/eng/process';
-  private payfastMerchantId = '20039131';
-  private payfastMerchantKey = 'pji54asxsmtoo';
+  private payfastMerchantId = '';
+  private payfastMerchantKey = '';
 
   private URL = 'https://pay.ozow.com/';
-  private ozowApiKey = 'f9V4hboj4ebbR1QW0YXRLGpm980craSq';
-  private ozowSiteCode = '1ST1ST002';
-  private paymentRequestId = 'e62ba8e0-d237-4100-8ac9-c491e95bbb7b';
+  private ozowApiKey = '';
+  private ozowSiteCode = '';
+  private paymentRequestId = '';
   //
-  private Zotamerchant_id = 'VAULTMARKETS';
-  private ZotaMerchantSecretKey = '37c27ae0-afcd-4df2-b1e6-9cb820bc59f6';
-  private merchantSecretKey = '37c27ae0-afcd-4df2-b1e6-9cb820bc59f6';
+  private Zotamerchant_id = '';
+  private ZotaMerchantSecretKey = '';
+  private merchantSecretKey = '';
   private ZotaURL = 'https://api.zotapay.com/api/v1/deposit/request/408963';
   constructor(
     private _authService: AuthService,
@@ -91,7 +91,7 @@ export class MainService extends GenericService {
   ): Promise<any> {
     let queryString = `${this.apiBaseUrl}method=create_withdrawal_request&user=${this._authService.getUser}&access_token=${this._authService.getToken}&currency=${currency}&amount=${amount}&method_id=${methodId}&method_type=${methodType}`;
     let headers = {
-      api_key: '29554993-1B65-4A5F-825F-E71484B82E9B',
+      api_key: '',
     };
     return this.http.post(queryString, null, { headers }).toPromise();
   }
